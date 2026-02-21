@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://yloy17oyyijj"]
+
+[ext_resource type="Texture2D" uid="uid://dvf31l3i7fox7" path="res://Physics/PhysicsCharacter.png" id="1_8qjul"]
+[ext_resource type="Script" uid="uid://doby505x1g1iw" path="res://Physics/physics_player.gd" id="1_ry666"]
+[ext_resource type="PackedScene" uid="uid://cpm7kk6fgjiu7" path="res://Physics/crate.tscn" id="3_hfrgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qjul"]
+size = Vector2(18, 18)
+
+[node name="Main" type="Node2D" unique_id=311136265]
+
+[node name="Player" type="RigidBody2D" parent="." unique_id=1663528725]
+position = Vector2(150, 74)
+mass = 10.0
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_ry666")
+
+[node name="Sprite" type="Sprite2D" parent="Player" unique_id=1561134837]
+texture = ExtResource("1_8qjul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1098677813]
+shape = SubResource("RectangleShape2D_8qjul")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=569782472]
+zoom = Vector2(3, 3)
+
+[node name="Crate" parent="." unique_id=1738057988 instance=ExtResource("3_hfrgb")]
+position = Vector2(-49, 63)
+
+[node name="Crate2" parent="." unique_id=1304372394 instance=ExtResource("3_hfrgb")]
+position = Vector2(-141, 44)
+
+[node name="Crate3" parent="." unique_id=550185250 instance=ExtResource("3_hfrgb")]
+position = Vector2(-81, 28)
+
+[node name="Crate4" parent="." unique_id=1392968924 instance=ExtResource("3_hfrgb")]
+position = Vector2(-123, 5)
+
+[node name="Crate5" parent="." unique_id=88392634 instance=ExtResource("3_hfrgb")]
+position = Vector2(-100, -20)
+
+[node name="Crate6" parent="." unique_id=181994853 instance=ExtResource("3_hfrgb")]
+position = Vector2(-97, 58)
+
+[node name="Crate7" parent="." unique_id=501160083 instance=ExtResource("3_hfrgb")]
+position = Vector2(-145, 86)
+
+[node name="Crate8" parent="." unique_id=1151414242 instance=ExtResource("3_hfrgb")]
+position = Vector2(-165, 55)
+
+[node name="Crate9" parent="." unique_id=1632136168 instance=ExtResource("3_hfrgb")]
+position = Vector2(-131, -19)
+
+[node name="Crate10" parent="." unique_id=284395599 instance=ExtResource("3_hfrgb")]
+position = Vector2(47, 17)
+
+[node name="Crate11" parent="." unique_id=1003970079 instance=ExtResource("3_hfrgb")]
+position = Vector2(-30, 2)
+
+[node name="Crate12" parent="." unique_id=393220296 instance=ExtResource("3_hfrgb")]
+position = Vector2(-33, -37)
+
+[node name="Crate13" parent="." unique_id=2139368368 instance=ExtResource("3_hfrgb")]
+position = Vector2(102, -36)
+
+[node name="Crate14" parent="." unique_id=1715166552 instance=ExtResource("3_hfrgb")]
+position = Vector2(32, -28)
+
+[node name="Crate15" parent="." unique_id=24157615 instance=ExtResource("3_hfrgb")]
+position = Vector2(-5, -35)
+
+[node name="Crate16" parent="." unique_id=924189662 instance=ExtResource("3_hfrgb")]
+position = Vector2(4, 72)
+
+[node name="Crate17" parent="." unique_id=129889246 instance=ExtResource("3_hfrgb")]
+position = Vector2(54, 70)
+
+[node name="Crate18" parent="." unique_id=1246322551 instance=ExtResource("3_hfrgb")]
+position = Vector2(117, 21)
+
+[node name="Crate19" parent="." unique_id=53746634 instance=ExtResource("3_hfrgb")]
+position = Vector2(67, -56)
+
+[node name="Crate20" parent="." unique_id=2092128659 instance=ExtResource("3_hfrgb")]
+position = Vector2(-34, -73)
+
+[node name="Crate21" parent="." unique_id=1216246876 instance=ExtResource("3_hfrgb")]
+position = Vector2(-84, -52)
+
+[node name="Crate22" parent="." unique_id=1005590377 instance=ExtResource("3_hfrgb")]
+position = Vector2(-137, -54)
+
+[node name="Crate23" parent="." unique_id=626215621 instance=ExtResource("3_hfrgb")]
+position = Vector2(-105, -86)
+
+[node name="Crate24" parent="." unique_id=988850972 instance=ExtResource("3_hfrgb")]
+position = Vector2(128, -81)
+
+[node name="Crate25" parent="." unique_id=985914256 instance=ExtResource("3_hfrgb")]
+position = Vector2(157, -30)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cpm7kk6fgjiu7"]
+
+[ext_resource type="Texture2D" uid="uid://b1362pbg6mcma" path="res://Physics/Crate.png" id="1_4enw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfrgb"]
+size = Vector2(18, 18)
+
+[node name="Crate" type="RigidBody2D" unique_id=1738057988]
+gravity_scale = 0.0
+linear_damp = 3.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1763389230]
+texture = ExtResource("1_4enw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155046970]
+shape = SubResource("RectangleShape2D_hfrgb")
