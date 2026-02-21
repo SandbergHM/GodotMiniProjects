@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BaloonPopper"
-run/main_scene="uid://c8kv58ok7bric"
+run/main_scene="uid://igt3rpjquvqw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

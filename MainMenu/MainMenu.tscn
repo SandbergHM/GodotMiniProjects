@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://igt3rpjquvqw"]
+
+[ext_resource type="Script" uid="uid://d1evd2d7qktuj" path="res://MainMenu/balloon_popper_button.gd" id="1_otibh"]
+[ext_resource type="Script" uid="uid://sm3blffodghk" path="res://MainMenu/physics_button.gd" id="2_cruaa"]
+
+[node name="MainMenu" type="Control" unique_id=160709170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BalloonPopperButton" type="MenuButton" parent="." unique_id=1045338914]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.012
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 631.936
+offset_bottom = 184.224
+toggle_mode = false
+text = "BALLOON POPPER"
+script = ExtResource("1_otibh")
+
+[node name="PhysicsButton" type="MenuButton" parent="." unique_id=1067365853]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.012
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 631.936
+offset_bottom = 312.224
+toggle_mode = false
+text = "PHYSICS"
+script = ExtResource("2_cruaa")
+
+[connection signal="pressed" from="BalloonPopperButton" to="BalloonPopperButton" method="_on_pressed"]
+[connection signal="pressed" from="PhysicsButton" to="BalloonPopperButton" method="_on_physics_button_pressed"]

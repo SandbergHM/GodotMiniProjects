@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bllvg016vk33o" path="res://Physics/player.tscn" id="1_ry666"]
 [ext_resource type="PackedScene" uid="uid://cpm7kk6fgjiu7" path="res://Physics/crate.tscn" id="3_hfrgb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry666"]
+size = Vector2(20, 216)
+
 [node name="Main" type="Node2D" unique_id=311136265]
 
 [node name="Player" parent="." unique_id=620832931 instance=ExtResource("1_ry666")]
@@ -85,5 +88,21 @@ position = Vector2(128, -81)
 
 [node name="Crate25" parent="." unique_id=985914256 instance=ExtResource("3_hfrgb")]
 position = Vector2(157, -30)
+
+[node name="Wall_Left2" type="RigidBody2D" parent="." unique_id=80769998]
+mass = 999999.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Left2" unique_id=2017092067]
+position = Vector2(-202, 0)
+shape = SubResource("RectangleShape2D_ry666")
+
+[node name="Wall_Right" type="RigidBody2D" parent="." unique_id=81316963]
+mass = 999999.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Right" unique_id=193299680]
+position = Vector2(202, 0)
+shape = SubResource("RectangleShape2D_ry666")
 
 [editable path="Player"]
