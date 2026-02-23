@@ -38,4 +38,4 @@ text = "PHYSICS"
 script = ExtResource("2_cruaa")
 
 [connection signal="pressed" from="BalloonPopperButton" to="BalloonPopperButton" method="_on_pressed"]
-[connection signal="pressed" from="PhysicsButton" to="BalloonPopperButton" method="_on_physics_button_pressed"]
+[connection signal="pressed" from="PhysicsButton" to="PhysicsButton" method="_on_pressed"]

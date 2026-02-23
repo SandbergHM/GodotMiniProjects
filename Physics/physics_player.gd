@@ -28,7 +28,6 @@ func _process (delta):
 				var direction: Vector2 = node.global_position - position
 				#Player --> Node distance
 				var distance: float = direction.length()
-				var classname = node.get_scene_file_path()
 				
 				if node.get_scene_file_path() == "res://Physics/crate.tscn":
 					#Destroy crate if too close to explosion
