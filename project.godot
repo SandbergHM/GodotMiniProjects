@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BaloonPopper"
+config/name="GodotMiniProjects"
 run/main_scene="uid://igt3rpjquvqw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -33,6 +33,5 @@ explosion={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0.3406735, 0.15786716, 0.19072732, 1)

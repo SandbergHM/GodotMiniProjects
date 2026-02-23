@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://08xpshkrayvx"]
 
+[ext_resource type="ArrayMesh" uid="uid://cg44rggprusy3" path="res://Collision/character-female-b.obj" id="1_fv6dv"]
+[ext_resource type="Script" uid="uid://mcna6dfuwes7" path="res://Collision/player_movement.gd" id="1_nc17b"]
+[ext_resource type="PackedScene" uid="uid://byukcuwch8e7a" path="res://Collision/tree.tscn" id="1_pf7po"]
+[ext_resource type="Script" uid="uid://buhbuqbunxu3j" path="res://Collision/bounce_pad.gd" id="4_15bix"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fv6dv"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nc17b"]
+size = Vector3(0.77441406, 1.2378998, 0.84265137)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fv6dv"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_5dn6e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pf7po"]
@@ -8,13 +21,46 @@
 background_mode = 1
 background_color = Color(0.30255407, 0.62569124, 0.7328591, 1)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_nc17b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15bix"]
+albedo_color = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ytqqh"]
+
 [node name="Main" type="Node3D" unique_id=1792561506]
 
+[node name="Player" type="RigidBody3D" parent="." unique_id=1420820471]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5.1751947, 13.131124)
+physics_material_override = SubResource("PhysicsMaterial_fv6dv")
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_nc17b")
+
+[node name="Playermodel" type="MeshInstance3D" parent="Player" unique_id=566601356]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_fv6dv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1020723912]
+transform = Transform3D(1, 0, 0, 0, 1.000002, 2.9802322e-07, 0, -2.9802322e-07, 1.000002, 0, 0.16951704, 3.8146973e-06)
+shape = SubResource("BoxShape3D_nc17b")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=316884872]
+transform = Transform3D(1, 0, 0, 0, 0.9631486, 0.2689703, 0, -0.2689703, 0.9631486, 0, 1.0101128, 0.99694824)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1536061170]
+transform = Transform3D(0.15430696, 0, 0, 0, 0.039104085, 5.9604645e-08, 0, -9.313226e-10, 0.58634496, -0.08649257, 0.0044207573, 0.0016107559)
+mesh = SubResource("BoxMesh_fv6dv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player" unique_id=611254847]
+transform = Transform3D(0.15430696, 0, 0, 0, 0.03910409, 7.4505806e-08, 0, -1.8626451e-09, 0.586345, 0.09283802, 0.0044207573, 0.0016117096)
+mesh = SubResource("BoxMesh_fv6dv")
+
 [node name="Ground" type="StaticBody3D" parent="." unique_id=963553719]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.3420201, 0, -0.3420201, 0.9396926, -0.01282692, 0, -0.10412121)
+transform = Transform3D(12, 0, 0, 0, 0.2819078, 10.260603, 0, -0.102606036, 28.190779, -0.01282692, 0, -0.10412121)
 
 [node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1025916868]
-transform = Transform3D(1, 0, 0, 0, 1, -3.8146973e-06, 0, -2.3283064e-10, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 2.3283064e-10, 0, -2.3283064e-10, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_5dn6e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=201899546]
@@ -25,4 +71,48 @@ shape = SubResource("BoxShape3D_pf7po")
 environment = SubResource("Environment_5dn6e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1211283630]
-transform = Transform3D(1, 0, 0, 0, 0.23493844, 0.97201025, 0, -0.97201025, 0.23493844, 0, 4.970482, 0)
+transform = Transform3D(0.9179486, 0.09945291, 0.3840306, -0.39669928, 0.23013057, 0.88863343, 0, -0.9680645, 0.25070092, 0, 4.970482, 0)
+shadow_enabled = true
+shadow_bias = 1.0
+shadow_blur = 0.5
+
+[node name="Tree" parent="." unique_id=230274106 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.93969256, 0.3420201, 0, -0.3420201, 0.93969256, 0, -3.5850363, -12.910508)
+
+[node name="Tree2" parent="." unique_id=360366038 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 2.891088, 2.849431, 4.6998386)
+
+[node name="Tree3" parent="." unique_id=1323914026 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -3.2683182, 2.849431, 4.6998386)
+
+[node name="Tree4" parent="." unique_id=1081481876 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -3.2683182, 4.7281733, 9.736505)
+
+[node name="Tree5" parent="." unique_id=896322434 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 4.3247323, 4.7281733, 9.736505)
+
+[node name="Tree6" parent="." unique_id=2050685351 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 4.3247323, -0.039073467, -3.4895105)
+
+[node name="Tree7" parent="." unique_id=1998720223 instance=ExtResource("1_pf7po")]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -0.20769548, -1.0620947, -5.9078164)
+
+[node name="BouncePad" type="RigidBody3D" parent="." unique_id=1039982362]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 1.5234556, 3.572794)
+mass = 0.001
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 999
+script = ExtResource("4_15bix")
+
+[node name="BouncePadModel" type="MeshInstance3D" parent="BouncePad" unique_id=1135807578]
+transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, -9.313226e-10, 1.0000001, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nc17b")
+surface_material_override/0 = SubResource("StandardMaterial3D_15bix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad" unique_id=563437890]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ytqqh")
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="body_entered" from="BouncePad" to="BouncePad" method="_on_body_entered"]
