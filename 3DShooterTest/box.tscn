@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cpikdkvsd3sjn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cd64"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4ewf"]
+albedo_color = Color(0.25882354, 1, 1, 1)
+
+[node name="Box" type="RigidBody3D" unique_id=1159106934]
+mass = 0.1
+gravity_scale = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547185273]
+shape = SubResource("BoxShape3D_2cd64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=838630322]
+mesh = SubResource("BoxMesh_w55ik")
+surface_material_override/0 = SubResource("StandardMaterial3D_n4ewf")

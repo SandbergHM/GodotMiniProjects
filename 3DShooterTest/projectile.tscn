@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dnbopj674xd7t"]
+
+[ext_resource type="Script" uid="uid://dixn8l2g5eylh" path="res://3DShooterTest/projectile.gd" id="1_ypo4c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w55ik"]
+friction = 0.4
+bounce = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2cd64"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_w55ik"]
+
+[node name="Projectile" type="RigidBody3D" unique_id=545947384]
+physics_material_override = SubResource("PhysicsMaterial_w55ik")
+script = ExtResource("1_ypo4c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1642842704]
+shape = SubResource("SphereShape3D_2cd64")
+
+[node name="ProjectileModel" type="MeshInstance3D" parent="." unique_id=545716690]
+mesh = SubResource("SphereMesh_w55ik")
+
+[node name="lifetime_timer" type="Timer" parent="." unique_id=287112265]
