@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://upvrkuaif5tj"]
+
+[ext_resource type="Shader" uid="uid://b60q4fd53ou8e" path="res://Shaders/outline3D_smooth_normals_color.gdshader" id="1_im2ba"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_im2ba")
+shader_parameter/thickness = 0.1
+shader_parameter/outline_color = Color(1, 1, 1, 1)

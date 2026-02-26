@@ -32,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, -0.24291992, -0
 shape = SubResource("BoxShape3D_x847p")
 
 [node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1768959836]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, -0.01180315, 0.0011191368)
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0, 0)
 mesh = SubResource("PlaneMesh_x847p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
 
@@ -53,9 +53,8 @@ mesh = SubResource("CapsuleMesh_x847p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0.48845148, 0.3728819)
 
 [node name="Interactline" type="RayCast3D" parent="Player" unique_id=1044963478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 11.526836, 0, 0.40444374, -0.5370722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.2607927, 0, 0.40444374, 0)
 target_position = Vector3(0, 0, -1)
-hit_from_inside = true
 
 [node name="Box" parent="." unique_id=1159106934 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)

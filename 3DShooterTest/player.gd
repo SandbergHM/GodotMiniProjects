@@ -13,6 +13,8 @@ extends CharacterBody3D
 ## Health
 @export var health : float = 100.0
 
+var last_collider = null
+
 ## Velocity of the player, used for movement and gravity
 var target_velocity = Vector3.ZERO
 ## Speed boost when the player is moving, used for sprinting or dashing mechanics
@@ -22,6 +24,8 @@ var mouse_movement = Input.get_last_mouse_velocity()
 ## Player rotation speed
 var rotation_speed: float = 0.005
 
+@onready var interact_line = $Interactline
+
 ## Preload projectile scene
 var projectile_scene = preload("res://3DShooterTest/projectile.tscn")
 
@@ -30,8 +34,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	up_direction = Vector3.UP
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 #region Player movement
 	var direction = Vector3.ZERO
@@ -75,7 +77,29 @@ func _physics_process(delta: float) -> void:
 		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.0 
 		projectile.linear_velocity = forward_direction * projectile.speed
 		get_parent().add_child(projectile)
+#endregion
 
+#region Object highlight
+	#rotate interact_line with camera
+	interact_line.global_transform.basis = $Camera3D.global_transform.basis
+	
+	if interact_line.is_colliding():
+		var collider = interact_line.get_collider()
+		last_collider = collider
+		
+		## if collider is rigidbody3d, apply shader to its child meshinstance
+		if collider is RigidBody3D:
+			var mesh_instance = collider.get_node("MeshInstance3D")
+			if mesh_instance:
+				mesh_instance.material_overlay = preload("res://3DShooterTest/highlight.tres")
+	elif last_collider != null:
+		var mesh_instance = last_collider.get_node("MeshInstance3D")
+		if mesh_instance:
+			mesh_instance.material_overlay = null
+			last_collider = null
+#endregion
+	
+	
 func _unhandled_input(event: InputEvent):
 #region Player rotation
 	if event is InputEventMouseMotion:
@@ -84,10 +108,3 @@ func _unhandled_input(event: InputEvent):
 		$Camera3D.rotation.x -= mouse_motion_event.relative.y * rotation_speed
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, PI/-2, PI/2)
 #endregion
-
-#react to collision with other objects
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Projectiles"):
-		health -= body.connect("health_depleted", Callable(self, "_on_health_depleted"))
-		print(health)
-		
