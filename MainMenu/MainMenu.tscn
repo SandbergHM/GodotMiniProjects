@@ -47,6 +47,19 @@ offset_bottom = 439.224
 toggle_mode = false
 text = "COLLISION"
 
+[node name="ShooterButton" type="MenuButton" parent="." unique_id=453380336]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.012
+offset_left = 449.0
+offset_top = 486.0
+offset_right = 632.936
+offset_bottom = 542.224
+toggle_mode = false
+text = "SHOOTER"
+
 [connection signal="pressed" from="BalloonPopperButton" to="." method="_on_balloon_popper_button_pressed"]
 [connection signal="pressed" from="PhysicsButton" to="." method="_on_physics_button_pressed"]
 [connection signal="pressed" from="CollisionButton" to="." method="_on_collision_button_pressed"]
+[connection signal="pressed" from="ShooterButton" to="." method="_on_shooter_button_pressed"]

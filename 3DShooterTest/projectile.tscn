@@ -12,6 +12,8 @@ bounce = 0.4
 
 [node name="Projectile" type="RigidBody3D" unique_id=545947384]
 physics_material_override = SubResource("PhysicsMaterial_w55ik")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ypo4c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1642842704]
@@ -20,4 +22,6 @@ shape = SubResource("SphereShape3D_2cd64")
 [node name="ProjectileModel" type="MeshInstance3D" parent="." unique_id=545716690]
 mesh = SubResource("SphereMesh_w55ik")
 
-[node name="lifetime_timer" type="Timer" parent="." unique_id=287112265]
+[node name="lifetime_timer" type="Timer" parent="." unique_id=287112265 groups=["Projectiles"]]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

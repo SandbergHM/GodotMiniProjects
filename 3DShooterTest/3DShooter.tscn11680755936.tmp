@@ -36,7 +36,7 @@ transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0, 0)
 mesh = SubResource("PlaneMesh_x847p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451 groups=["Player", "can_be_damaged"]]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.547999, -2.5341742)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
@@ -52,31 +52,6 @@ mesh = SubResource("CapsuleMesh_x847p")
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=64202484]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0.48845148, 0.3728819)
 
-[node name="Box" parent="." unique_id=1159106934 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
+[node name="Box" parent="." unique_id=1159106934 instance=ExtResource("2_2cd64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box2" parent="." unique_id=665871927 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 7.205277, -3.3121314)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box3" parent="." unique_id=1716429298 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, 1.5061998)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box4" parent="." unique_id=1029656980 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.205277, -8.119015)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box5" parent="." unique_id=144988330 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.205277, -10.619869)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box6" parent="." unique_id=2117262832 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.205277, 6.8271623)
-mass = 74.057
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box7" parent="." unique_id=583820922 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.205277, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")

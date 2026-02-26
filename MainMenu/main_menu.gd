@@ -16,3 +16,7 @@ func _on_physics_button_pressed() -> void:
 
 func _on_collision_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Collision/collision.tscn")
+
+
+func _on_shooter_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://3DShooterTest/3DShooter.tscn")

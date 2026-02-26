@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export var jump_height : float = 5.0
 ## Gravity acceleration, used to pull the player down when in the air
 @export var fall_acceleration = 9.8
+## Health
+@export var health : float = 100.0
 
 ## Velocity of the player, used for movement and gravity
 var target_velocity = Vector3.ZERO
@@ -20,6 +22,8 @@ var mouse_movement = Input.get_last_mouse_velocity()
 ## Player rotation speed
 var rotation_speed: float = 0.005
 
+## Preload projectile scene
+var projectile_scene = preload("res://3DShooterTest/projectile.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,14 +68,14 @@ func _physics_process(delta: float) -> void:
 
 #endregion
 
-#region Player shooting
-	if(Input.is_action_just_pressed("3D_player_shoot")):
-		var projectile_scene = preload("res://Projectile/Projectile.tscn")
-		var projectile_instance = projectile_scene.instantiate()
-		var spawn_position = $Camera3D.global_transform.origin + ($Camera3D.global_transform.basis.z * -1) # Spawn in front of the camera
-		projectile_instance.global_transform.origin = spawn_position
-		projectile_instance.global_transform.basis = $Camera3D.global_transform.basis # Align projectile direction with camera direction
-		get_parent().add_child(projectile_instance)
+#region Spawn projectile
+	if Input.is_action_just_pressed("3D_player_shoot"):
+		var projectile = projectile_scene.instantiate()
+		var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
+		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.0 
+		projectile.linear_velocity = forward_direction * projectile.speed
+		get_parent().add_child(projectile)
+
 func _unhandled_input(event: InputEvent):
 #region Player rotation
 	if event is InputEventMouseMotion:
@@ -80,3 +84,10 @@ func _unhandled_input(event: InputEvent):
 		$Camera3D.rotation.x -= mouse_motion_event.relative.y * rotation_speed
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, PI/-2, PI/2)
 #endregion
+
+#react to collision with other objects
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Projectiles"):
+		health -= body.connect("health_depleted", Callable(self, "_on_health_depleted"))
+		print(health)
+		
