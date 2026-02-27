@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var health : float = 100.0
 ## Object throw force
 @export var throw_force : float = 25.0
+## Player damage
+@export var player_damage : float = 5
 #endregion
 
 #region local variables
@@ -79,9 +81,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("3D_player_shoot"):
 		var projectile = projectile_scene.instantiate()
 		var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
+		get_parent().add_child(projectile)
 		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.0 
 		projectile.linear_velocity = forward_direction * projectile.speed
-		get_parent().add_child(projectile)
+		projectile.damage = player_damage
+		
 #endregion
 
 #region Object highlight

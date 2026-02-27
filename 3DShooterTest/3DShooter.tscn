@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://c6j6uf4h1gbbm" path="res://3DShooterTest/player.gd" id="1_x847p"]
 [ext_resource type="PackedScene" uid="uid://cpikdkvsd3sjn" path="res://3DShooterTest/box.tscn" id="2_2cd64"]
 [ext_resource type="Script" uid="uid://unrop6g61os8" path="res://3DShooterTest/enemy.gd" id="4_n4ewf"]
-[ext_resource type="PackedScene" uid="uid://cvrfqesyue87l" path="res://3DShooterTest/Resources/Healthbar/Healthbar.tscn" id="5_22v36"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
 friction = 0.0
@@ -77,75 +76,75 @@ size_flags_horizontal = 0
 text = "Esc: back"
 
 [node name="Box" parent="." unique_id=1159106934 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 34.302956, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box2" parent="." unique_id=665871927 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 7.205277, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 34.302956, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box3" parent="." unique_id=1716429298 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, 1.5061998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 34.302956, 1.5061998)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box4" parent="." unique_id=1029656980 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.205277, -8.119015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 34.302956, -8.119015)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box5" parent="." unique_id=144988330 instance=ExtResource("2_2cd64")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.205277, -10.619869)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 34.302956, -10.619869)
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box6" parent="." unique_id=2117262832 instance=ExtResource("2_2cd64")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.205277, 6.8271623)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 34.302956, 6.8271623)
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box7" parent="." unique_id=583820922 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.205277, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 34.302956, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box8" parent="." unique_id=661797836 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 3.5518146, -20.152384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 30.649492, -20.152384)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1225722860]
-transform = Transform3D(-0.04818735, 0.9988383, 1.0117085e-09, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 6.475185, 0)
+transform = Transform3D(-0.04818735, 0.9988383, 5.8732197e-10, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 33.57286, 0)
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451 groups=["Player", "can_be_damaged"]]
 transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, 7.547999, -2.5341742)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
-throw_force = 3.0
+throw_force = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2070204287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.097677, 0)
 shape = SubResource("CapsuleShape3D_ejay1")
 
 [node name="PlayerModel" type="MeshInstance3D" parent="Player" unique_id=680546354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.097677, 0)
 mesh = SubResource("CapsuleMesh_x847p")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=64202484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0.48845148, 0.3728819)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.58613, 0.37288177)
 
 [node name="Interactline" type="RayCast3D" parent="Player" unique_id=1044963478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40444374, -0.5370722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.502123, -0.5370722)
 target_position = Vector3(0, 0, -5)
 
 [node name="Enemy" type="CharacterBody3D" parent="." unique_id=1019801220 groups=["can_be_damaged"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.059036, 7.4822025, 0)
 script = ExtResource("4_n4ewf")
-
-[node name="Healthbar" parent="Enemy" unique_id=379209950 node_paths=PackedStringArray("character") instance=ExtResource("5_22v36")]
-character = NodePath("..")
+damage_cooldown = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy" unique_id=720488131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.097677, 0)
 shape = SubResource("CapsuleShape3D_w55ik")
 
 [node name="EnemyModel" type="MeshInstance3D" parent="Enemy" unique_id=413619592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.097677, 0)
 mesh = SubResource("CapsuleMesh_n4ewf")
 surface_material_override/0 = SubResource("StandardMaterial3D_22v36")
 
@@ -156,22 +155,34 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4228492, -22.421251)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=749957291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 27.597677, 0)
 shape = SubResource("BoxShape3D_2cd64")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=357000763]
-transform = Transform3D(3.9729707, 0, 0, 0, 2.0000904, 0, 0, 0, 4.953536, 0.47148764, 0.4865136, 0)
+transform = Transform3D(3.9729707, 0, 0, 0, 2.0000904, 0, 0, 0, 4.953536, 0.47148764, 27.58419, 0)
 mesh = SubResource("BoxMesh_w55ik")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1475845022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97964287, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1850347178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, -0.24291992, -0.14993286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, 26.854757, -0.14993286)
 shape = SubResource("BoxShape3D_x847p")
 
 [node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1768959836]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, -0.01180315, 0.0011191368)
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, 27.085875, 0.0011191368)
+mesh = SubResource("PlaneMesh_x847p")
+surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
+
+[node name="Ground2" type="StaticBody3D" parent="." unique_id=1295007081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.964546, -16.945332, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2" unique_id=762414462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, 26.854757, -0.14993286)
+shape = SubResource("BoxShape3D_x847p")
+
+[node name="GroundModel" type="MeshInstance3D" parent="Ground2" unique_id=1358024952]
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, 27.085875, 0.0011191368)
 mesh = SubResource("PlaneMesh_x847p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
 

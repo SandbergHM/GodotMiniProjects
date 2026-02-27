@@ -7,7 +7,6 @@ extends RigidBody3D
 ## Projectile damage
 @export var damage : float = 5
 
-signal health_depleted
 
 @onready var timer = $lifetime_timer
 
@@ -15,6 +14,7 @@ func _ready() -> void:
 	#Activate projectile lifetime control
 	timer.one_shot = true
 	timer.start(lifetime)
+	mass = damage
 
 
 func _process(delta: float) -> void:

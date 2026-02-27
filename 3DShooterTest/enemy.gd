@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var damage_cooldown : float = 1
 ## Maximum falling speed, used to prevent the player from falling too fast and breaking the game physics
 @export var terminal_velocity : float = -50.0
+## Movement speed
+@export var movement_speed : float = 5.0
 
 # health
 var health : float = max_health
@@ -17,10 +19,18 @@ var target_velocity = Vector3.ZERO
 var fall_acceleration = 9.8
 
 @onready var damagetakentimer = $DamageTakenTimer
-
+@onready var player = $"../Player"
 
 
 func _physics_process(delta: float) -> void:
+#region enemy movement
+	
+	#move rigidbody towards player
+	if player:
+		var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
+		target_velocity.x = direction_to_player.x * movement_speed
+		target_velocity.z = direction_to_player.z * movement_speed
+	
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		target_velocity.y = max(target_velocity.y - (fall_acceleration * delta),terminal_velocity)
@@ -30,6 +40,8 @@ func _physics_process(delta: float) -> void:
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+
+#endregion
 	
 #region damage taken
 	for i in get_slide_collision_count():
