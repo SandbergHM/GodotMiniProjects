@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cvyx44uv2hu0a"]
 
+[ext_resource type="Script" uid="uid://bodoj8x5v8nux" path="res://3DShooterTest/3d_shooter_manager.gd" id="1_w55ik"]
 [ext_resource type="Script" uid="uid://c6j6uf4h1gbbm" path="res://3DShooterTest/player.gd" id="1_x847p"]
 [ext_resource type="PackedScene" uid="uid://cpikdkvsd3sjn" path="res://3DShooterTest/box.tscn" id="2_2cd64"]
 
@@ -18,7 +19,13 @@ albedo_color = Color(0.36707318, 0.15413055, 0.033328786, 1)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
 friction = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cd64"]
+size = Vector3(4, 2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
+
 [node name="3dShooter" type="Node3D" unique_id=1249591067]
+script = ExtResource("1_w55ik")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1225722860]
 transform = Transform3D(-0.04818735, 0.9988383, 1.0117085e-09, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 6.475185, 0)
@@ -40,6 +47,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.547999, -2.5341742)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
+throw_force = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2070204287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0, 0)
@@ -53,9 +61,8 @@ mesh = SubResource("CapsuleMesh_x847p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0.48845148, 0.3728819)
 
 [node name="Interactline" type="RayCast3D" parent="Player" unique_id=1044963478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 11.526836, 0, 0.40444374, -0.5370722)
-target_position = Vector3(0, 0, -1)
-hit_from_inside = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40444374, -0.5370722)
+target_position = Vector3(0, 0, -5)
 
 [node name="Box" parent="." unique_id=1159106934 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)
@@ -75,13 +82,69 @@ physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box5" parent="." unique_id=144988330 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.205277, -10.619869)
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box6" parent="." unique_id=2117262832 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.205277, 6.8271623)
-mass = 74.057
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box7" parent="." unique_id=583820922 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.205277, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box8" parent="." unique_id=661797836 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 3.5518146, -20.152384)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Area3D" type="StaticBody3D" parent="." unique_id=649741428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4228492, -22.421251)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=749957291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+shape = SubResource("BoxShape3D_2cd64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=357000763]
+transform = Transform3D(3.9729707, 0, 0, 0, 2.0000904, 0, 0, 0, 4.953536, 0.47148764, 0.4865136, 0)
+mesh = SubResource("BoxMesh_w55ik")
+
+[node name="Label" type="Label" parent="." unique_id=442618745]
+offset_left = 986.0
+offset_top = 458.0
+offset_right = 1107.0
+offset_bottom = 481.0
+size_flags_horizontal = 0
+text = "Left click: shoot"
+
+[node name="Label2" type="Label" parent="." unique_id=1336064622]
+offset_left = 986.0
+offset_top = 493.0
+offset_right = 1119.0
+offset_bottom = 516.0
+size_flags_horizontal = 0
+text = "Right click: throw"
+
+[node name="Label3" type="Label" parent="." unique_id=1297651043]
+offset_left = 986.0
+offset_top = 530.0
+offset_right = 1119.0
+offset_bottom = 553.0
+size_flags_horizontal = 0
+text = "Shift: sprint"
+
+[node name="Label4" type="Label" parent="." unique_id=43204202]
+offset_left = 986.0
+offset_top = 563.0
+offset_right = 1119.0
+offset_bottom = 586.0
+size_flags_horizontal = 0
+text = "Space: jump"
+
+[node name="Label5" type="Label" parent="." unique_id=886302998]
+offset_left = 986.0
+offset_top = 597.0
+offset_right = 1119.0
+offset_bottom = 620.0
+size_flags_horizontal = 0
+text = "Esc: back"

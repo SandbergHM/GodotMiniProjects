@@ -12,6 +12,9 @@ extends CharacterBody3D
 @export var fall_acceleration = 9.8
 ## Health
 @export var health : float = 100.0
+## Object throw force
+@export var throw_force : float = 20.0
+
 
 var last_collider = null
 
@@ -82,23 +85,27 @@ func _physics_process(delta: float) -> void:
 #region Object highlight
 	#rotate interact_line with camera
 	interact_line.global_transform.basis = $Camera3D.global_transform.basis
-	
 	if interact_line.is_colliding():
 		var collider = interact_line.get_collider()
-		last_collider = collider
-		
-		## if collider is rigidbody3d, apply shader to its child meshinstance
 		if collider is RigidBody3D:
+			last_collider = collider
 			var mesh_instance = collider.get_node("MeshInstance3D")
 			if mesh_instance:
-				mesh_instance.material_overlay = preload("res://3DShooterTest/highlight.tres")
+				mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box_Highlight.tres")
 	elif last_collider != null:
 		var mesh_instance = last_collider.get_node("MeshInstance3D")
 		if mesh_instance:
-			mesh_instance.material_overlay = null
+			mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box.tres")
 			last_collider = null
 #endregion
-	
+
+	if Input.is_action_just_pressed("3D_player_force_throw"):
+		if interact_line.is_colliding():
+			var collider = interact_line.get_collider()
+			if collider is RigidBody3D:	
+				#get camera direction
+				var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
+				collider.apply_impulse(forward_direction * throw_force)
 	
 func _unhandled_input(event: InputEvent):
 #region Player rotation

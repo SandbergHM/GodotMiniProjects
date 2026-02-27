@@ -18,4 +18,13 @@ surface_material_override/0 = ExtResource("3_1bja1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16264528, 0)
 shape = SubResource("SphereShape3D_uoooh")
 
+[node name="Label5" type="Label" parent="." unique_id=895296490]
+offset_left = 986.0
+offset_top = 597.0
+offset_right = 1119.0
+offset_bottom = 620.0
+scale = Vector2(0.9943251, 1.0090426)
+size_flags_horizontal = 0
+text = "Esc: back"
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]

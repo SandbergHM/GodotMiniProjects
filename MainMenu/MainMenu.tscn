@@ -59,6 +59,15 @@ offset_bottom = 542.224
 toggle_mode = false
 text = "SHOOTER"
 
+[node name="Label5" type="Label" parent="." unique_id=597057851]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 600.0
+offset_right = 1131.0
+offset_bottom = 623.0
+size_flags_horizontal = 0
+text = "Press \"ESC\" to return to main menu"
+
 [connection signal="pressed" from="BalloonPopperButton" to="." method="_on_balloon_popper_button_pressed"]
 [connection signal="pressed" from="PhysicsButton" to="." method="_on_physics_button_pressed"]
 [connection signal="pressed" from="CollisionButton" to="." method="_on_collision_button_pressed"]

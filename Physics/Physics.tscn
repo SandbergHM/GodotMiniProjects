@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://yloy17oyyijj"]
 
+[ext_resource type="Script" uid="uid://5tcbuju0drwf" path="res://Physics/physics_manager.gd" id="1_eghp1"]
 [ext_resource type="PackedScene" uid="uid://bllvg016vk33o" path="res://Physics/player.tscn" id="1_ry666"]
 [ext_resource type="PackedScene" uid="uid://cpm7kk6fgjiu7" path="res://Physics/crate.tscn" id="3_hfrgb"]
 
@@ -7,6 +8,7 @@
 size = Vector2(20, 216)
 
 [node name="Main" type="Node2D" unique_id=311136265]
+script = ExtResource("1_eghp1")
 
 [node name="Player" parent="." unique_id=620832931 instance=ExtResource("1_ry666")]
 position = Vector2(150, 74)
@@ -104,5 +106,13 @@ gravity_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Right" unique_id=193299680]
 position = Vector2(202, 0)
 shape = SubResource("RectangleShape2D_ry666")
+
+[node name="Label5" type="Label" parent="." unique_id=1252388000]
+offset_left = 113.0
+offset_top = 83.0
+offset_right = 246.0
+offset_bottom = 106.0
+size_flags_horizontal = 0
+text = "Esc: back"
 
 [editable path="Player"]

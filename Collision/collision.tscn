@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cg44rggprusy3" path="res://Collision/character-female-b.obj" id="1_fv6dv"]
 [ext_resource type="Script" uid="uid://mcna6dfuwes7" path="res://Collision/player_movement.gd" id="1_nc17b"]
 [ext_resource type="PackedScene" uid="uid://byukcuwch8e7a" path="res://Collision/tree.tscn" id="1_pf7po"]
+[ext_resource type="Script" uid="uid://cs6isurkv8leo" path="res://Collision/collision_manager.gd" id="1_ytqqh"]
 [ext_resource type="PackedScene" uid="uid://dqv88qm6inue" path="res://Collision/bounce_pad.tscn" id="4_15bix"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fv6dv"]
@@ -22,6 +23,15 @@ background_mode = 1
 background_color = Color(0.30255407, 0.62569124, 0.7328591, 1)
 
 [node name="Main" type="Node3D" unique_id=1792561506]
+script = ExtResource("1_ytqqh")
+
+[node name="Label5" type="Label" parent="." unique_id=1757241246]
+offset_left = 986.0
+offset_top = 597.0
+offset_right = 1119.0
+offset_bottom = 620.0
+size_flags_horizontal = 0
+text = "Esc: back"
 
 [node name="Player" type="RigidBody3D" parent="." unique_id=1420820471 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5.1751947, 13.131124)
