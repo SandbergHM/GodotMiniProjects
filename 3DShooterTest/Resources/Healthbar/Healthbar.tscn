@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cvrfqesyue87l"]
+
+[ext_resource type="Script" uid="uid://byoyd440gdqpa" path="res://3DShooterTest/Resources/Healthbar/healthbar.gd" id="1_8pcdr"]
+
+[sub_resource type="Gradient" id="Gradient_8pcdr"]
+offsets = PackedFloat32Array(0, 0.47440273, 1)
+colors = PackedColorArray(0.34, 0, 0.017000064, 1, 0.71, 0.085200004, 0.085200004, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3b2s"]
+gradient = SubResource("Gradient_8pcdr")
+width = 128
+height = 16
+fill_from = Vector2(0.16806723, 0.35854343)
+
+[node name="Healthbar" type="TextureProgressBar" unique_id=379209950]
+rounded = true
+texture_progress = SubResource("GradientTexture2D_x3b2s")
+script = ExtResource("1_8pcdr")

@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+#region export variables
 ## Character movement speed
 @export var movement_speed : float = 10.0
 ## Character sprint speed
@@ -13,8 +14,10 @@ extends CharacterBody3D
 ## Health
 @export var health : float = 100.0
 ## Object throw force
-@export var throw_force : float = 20.0
+@export var throw_force : float = 25.0
+#endregion
 
+#region local variables
 ## Store last interacted object
 var last_collider = null
 ## Velocity of the player, used for movement and gravity
@@ -25,6 +28,7 @@ var movement_boost_speed : float = 0
 var mouse_movement = Input.get_last_mouse_velocity()
 ## Player rotation speed
 var rotation_speed: float = 0.005
+#endregion
 
 @onready var interact_line = $Interactline
 
@@ -83,9 +87,9 @@ func _physics_process(delta: float) -> void:
 #region Object highlight
 	#rotate interact_line with camera
 	interact_line.global_transform.basis = $Camera3D.global_transform.basis
-	if interact_line.is_colliding() and interact_line.get_collider().is_in_group("interactable"):
+	if interact_line.is_colliding():
 		var collider = interact_line.get_collider()
-		if collider is RigidBody3D:
+		if collider is RigidBody3D and collider.is_in_group("interactable"):
 			last_collider = collider
 			var mesh_instance = collider.get_node("MeshInstance3D")
 			if mesh_instance:

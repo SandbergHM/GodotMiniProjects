@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
 
-[node name="Box" type="RigidBody3D" unique_id=1159106934 groups=["interacteable"]]
+[node name="Box" type="RigidBody3D" unique_id=1159106934 groups=["interactable"]]
 mass = 0.1
 gravity_scale = 0.3
 

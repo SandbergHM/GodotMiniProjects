@@ -3,6 +3,27 @@
 [ext_resource type="Script" uid="uid://bodoj8x5v8nux" path="res://3DShooterTest/3d_shooter_manager.gd" id="1_w55ik"]
 [ext_resource type="Script" uid="uid://c6j6uf4h1gbbm" path="res://3DShooterTest/player.gd" id="1_x847p"]
 [ext_resource type="PackedScene" uid="uid://cpikdkvsd3sjn" path="res://3DShooterTest/box.tscn" id="2_2cd64"]
+[ext_resource type="Script" uid="uid://unrop6g61os8" path="res://3DShooterTest/enemy.gd" id="4_n4ewf"]
+[ext_resource type="PackedScene" uid="uid://cvrfqesyue87l" path="res://3DShooterTest/Resources/Healthbar/Healthbar.tscn" id="5_22v36"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejay1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x847p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w55ik"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n4ewf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22v36"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cd64"]
+size = Vector3(4, 2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x847p"]
 size = Vector3(49.919678, 0.51416016, 49.767883)
@@ -12,39 +33,89 @@ size = Vector3(49.919678, 0.51416016, 49.767883)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejay1"]
 albedo_color = Color(0.36707318, 0.15413055, 0.033328786, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejay1"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x847p"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
-friction = 0.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2cd64"]
-size = Vector3(4, 2, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
-
 [node name="3dShooter" type="Node3D" unique_id=1249591067]
 script = ExtResource("1_w55ik")
+
+[node name="Label" type="Label" parent="." unique_id=442618745]
+offset_left = 1743.0
+offset_top = 885.0
+offset_right = 1864.0
+offset_bottom = 908.0
+size_flags_horizontal = 0
+text = "Left click: shoot"
+
+[node name="Label2" type="Label" parent="." unique_id=1336064622]
+offset_left = 1743.0
+offset_top = 920.0
+offset_right = 1876.0
+offset_bottom = 943.0
+size_flags_horizontal = 0
+text = "Right click: throw"
+
+[node name="Label3" type="Label" parent="." unique_id=1297651043]
+offset_left = 1743.0
+offset_top = 957.0
+offset_right = 1876.0
+offset_bottom = 980.0
+size_flags_horizontal = 0
+text = "Shift: sprint"
+
+[node name="Label4" type="Label" parent="." unique_id=43204202]
+offset_left = 1743.0
+offset_top = 990.0
+offset_right = 1876.0
+offset_bottom = 1013.0
+size_flags_horizontal = 0
+text = "Space: jump"
+
+[node name="Label5" type="Label" parent="." unique_id=886302998]
+offset_left = 1743.0
+offset_top = 1024.0
+offset_right = 1876.0
+offset_bottom = 1047.0
+size_flags_horizontal = 0
+text = "Esc: back"
+
+[node name="Box" parent="." unique_id=1159106934 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box2" parent="." unique_id=665871927 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 7.205277, -3.3121314)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box3" parent="." unique_id=1716429298 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, 1.5061998)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box4" parent="." unique_id=1029656980 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.205277, -8.119015)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box5" parent="." unique_id=144988330 instance=ExtResource("2_2cd64")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.205277, -10.619869)
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box6" parent="." unique_id=2117262832 instance=ExtResource("2_2cd64")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.205277, 6.8271623)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box7" parent="." unique_id=583820922 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.205277, -3.3121314)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
+
+[node name="Box8" parent="." unique_id=661797836 instance=ExtResource("2_2cd64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 3.5518146, -20.152384)
+physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1225722860]
 transform = Transform3D(-0.04818735, 0.9988383, 1.0117085e-09, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 6.475185, 0)
 shadow_enabled = true
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=1475845022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97964287, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1850347178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, -0.24291992, -0.14993286)
-shape = SubResource("BoxShape3D_x847p")
-
-[node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1768959836]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, -0.01180315, 0.0011191368)
-mesh = SubResource("PlaneMesh_x847p")
-surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
-
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451 groups=["Player", "can_be_damaged"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.547999, -2.5341742)
+transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, 7.547999, -2.5341742)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
 throw_force = 3.0
@@ -64,39 +135,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271614, 0.48845148, 0.37
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40444374, -0.5370722)
 target_position = Vector3(0, 0, -5)
 
-[node name="Box" parent="." unique_id=1159106934 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, -3.3121314)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
+[node name="Enemy" type="CharacterBody3D" parent="." unique_id=1019801220 groups=["can_be_damaged"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.059036, 7.4822025, 0)
+script = ExtResource("4_n4ewf")
 
-[node name="Box2" parent="." unique_id=665871927 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 7.205277, -3.3121314)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
+[node name="Healthbar" parent="Enemy" unique_id=379209950 node_paths=PackedStringArray("character") instance=ExtResource("5_22v36")]
+character = NodePath("..")
 
-[node name="Box3" parent="." unique_id=1716429298 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.205277, 1.5061998)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy" unique_id=720488131]
+shape = SubResource("CapsuleShape3D_w55ik")
 
-[node name="Box4" parent="." unique_id=1029656980 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.205277, -8.119015)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
+[node name="EnemyModel" type="MeshInstance3D" parent="Enemy" unique_id=413619592]
+mesh = SubResource("CapsuleMesh_n4ewf")
+surface_material_override/0 = SubResource("StandardMaterial3D_22v36")
 
-[node name="Box5" parent="." unique_id=144988330 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.205277, -10.619869)
-mass = 5.0
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box6" parent="." unique_id=2117262832 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.205277, 6.8271623)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box7" parent="." unique_id=583820922 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.205277, -3.3121314)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box8" parent="." unique_id=661797836 groups=["can_be_damaged"] instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 3.5518146, -20.152384)
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
+[node name="DamageTakenTimer" type="Timer" parent="Enemy" unique_id=1392252434]
+one_shot = true
 
 [node name="Area3D" type="StaticBody3D" parent="." unique_id=649741428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4228492, -22.421251)
@@ -109,42 +163,16 @@ shape = SubResource("BoxShape3D_2cd64")
 transform = Transform3D(3.9729707, 0, 0, 0, 2.0000904, 0, 0, 0, 4.953536, 0.47148764, 0.4865136, 0)
 mesh = SubResource("BoxMesh_w55ik")
 
-[node name="Label" type="Label" parent="." unique_id=442618745]
-offset_left = 986.0
-offset_top = 458.0
-offset_right = 1107.0
-offset_bottom = 481.0
-size_flags_horizontal = 0
-text = "Left click: shoot"
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1475845022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97964287, 0)
 
-[node name="Label2" type="Label" parent="." unique_id=1336064622]
-offset_left = 986.0
-offset_top = 493.0
-offset_right = 1119.0
-offset_bottom = 516.0
-size_flags_horizontal = 0
-text = "Right click: throw"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1850347178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, -0.24291992, -0.14993286)
+shape = SubResource("BoxShape3D_x847p")
 
-[node name="Label3" type="Label" parent="." unique_id=1297651043]
-offset_left = 986.0
-offset_top = 530.0
-offset_right = 1119.0
-offset_bottom = 553.0
-size_flags_horizontal = 0
-text = "Shift: sprint"
+[node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1768959836]
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, -0.01180315, 0.0011191368)
+mesh = SubResource("PlaneMesh_x847p")
+surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
 
-[node name="Label4" type="Label" parent="." unique_id=43204202]
-offset_left = 986.0
-offset_top = 563.0
-offset_right = 1119.0
-offset_bottom = 586.0
-size_flags_horizontal = 0
-text = "Space: jump"
-
-[node name="Label5" type="Label" parent="." unique_id=886302998]
-offset_left = 986.0
-offset_top = 597.0
-offset_right = 1119.0
-offset_bottom = 620.0
-size_flags_horizontal = 0
-text = "Esc: back"
+[connection signal="timeout" from="Enemy/DamageTakenTimer" to="Enemy" method="_on_damagetakentimer_timeout"]

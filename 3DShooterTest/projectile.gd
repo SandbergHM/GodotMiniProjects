@@ -5,7 +5,7 @@ extends RigidBody3D
 ## Lifetime of the projectile
 @export var lifetime : float = 10
 ## Projectile damage
-@export var damage : float = 1
+@export var damage : float = 5
 
 signal health_depleted
 
@@ -25,5 +25,6 @@ func _process(delta: float) -> void:
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	#Do not react to player or other projectiles
-	if not body.is_in_group("Player") and not body.is_in_group("Projectiles"):
+	if not body.is_in_group("Player") and not body.is_in_group("Projectiles"):		
 		queue_free()
+		
