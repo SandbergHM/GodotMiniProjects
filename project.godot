@@ -23,6 +23,7 @@ enabled=PackedStringArray("res://addons/github_copilot/plugin.cfg")
 
 can_be_damaged="Can be damaged by projectiles"
 Projectiles=""
+interacteable=""
 
 [input]
 

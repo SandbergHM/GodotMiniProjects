@@ -15,9 +15,8 @@ extends CharacterBody3D
 ## Object throw force
 @export var throw_force : float = 20.0
 
-
+## Store last interacted object
 var last_collider = null
-
 ## Velocity of the player, used for movement and gravity
 var target_velocity = Vector3.ZERO
 ## Speed boost when the player is moving, used for sprinting or dashing mechanics
@@ -32,7 +31,6 @@ var rotation_speed: float = 0.005
 ## Preload projectile scene
 var projectile_scene = preload("res://3DShooterTest/projectile.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	up_direction = Vector3.UP
@@ -85,7 +83,7 @@ func _physics_process(delta: float) -> void:
 #region Object highlight
 	#rotate interact_line with camera
 	interact_line.global_transform.basis = $Camera3D.global_transform.basis
-	if interact_line.is_colliding():
+	if interact_line.is_colliding() and interact_line.get_collider().is_in_group("interactable"):
 		var collider = interact_line.get_collider()
 		if collider is RigidBody3D:
 			last_collider = collider
@@ -99,6 +97,7 @@ func _physics_process(delta: float) -> void:
 			last_collider = null
 #endregion
 
+#region Object throwing
 	if Input.is_action_just_pressed("3D_player_force_throw"):
 		if interact_line.is_colliding():
 			var collider = interact_line.get_collider()
@@ -106,7 +105,8 @@ func _physics_process(delta: float) -> void:
 				#get camera direction
 				var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
 				collider.apply_impulse(forward_direction * throw_force)
-	
+#endregion
+
 func _unhandled_input(event: InputEvent):
 #region Player rotation
 	if event is InputEventMouseMotion:
