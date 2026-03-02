@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c6j6uf4h1gbbm" path="res://3DShooterTest/player.gd" id="1_x847p"]
 [ext_resource type="PackedScene" uid="uid://cpikdkvsd3sjn" path="res://3DShooterTest/box.tscn" id="2_2cd64"]
 [ext_resource type="Script" uid="uid://unrop6g61os8" path="res://3DShooterTest/enemy.gd" id="4_n4ewf"]
+[ext_resource type="PackedScene" uid="uid://b2hp7i1kpbh3t" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin.tscn" id="5_22v36"]
+[ext_resource type="PackedScene" uid="uid://celp0shjbxrh6" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin_pieces.tscn" id="6_e8jcd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
 friction = 0.0
@@ -138,6 +140,7 @@ target_position = Vector3(0, 0, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.059036, 7.4822025, 0)
 script = ExtResource("4_n4ewf")
 damage_cooldown = 0.2
+enable_follow = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy" unique_id=720488131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.097677, 0)
@@ -185,5 +188,21 @@ shape = SubResource("BoxShape3D_x847p")
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, 27.085875, 0.0011191368)
 mesh = SubResource("PlaneMesh_x847p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
+
+[node name="Pumpkin3" parent="." unique_id=1744911829 instance=ExtResource("5_22v36")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, 1.6437516)
+broken_model = ExtResource("6_e8jcd")
+
+[node name="Pumpkin4" parent="." unique_id=444371602 instance=ExtResource("5_22v36")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, 4.7257195)
+broken_model = ExtResource("6_e8jcd")
+
+[node name="Pumpkin5" parent="." unique_id=1404158592 instance=ExtResource("5_22v36")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, -1.9568605)
+broken_model = ExtResource("6_e8jcd")
+
+[node name="Pumpkin6" parent="." unique_id=1840055057 instance=ExtResource("5_22v36")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.5141363, 28.889233, 4.7257195)
+broken_model = ExtResource("6_e8jcd")
 
 [connection signal="timeout" from="Enemy/DamageTakenTimer" to="Enemy" method="_on_damagetakentimer_timeout"]

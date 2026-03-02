@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export var terminal_velocity : float = -50.0
 ## Movement speed
 @export var movement_speed : float = 5.0
+## Enable following the player
+@export var enable_follow : bool = true
 
 # health
 var health : float = max_health
@@ -26,7 +28,7 @@ func _physics_process(delta: float) -> void:
 #region enemy movement
 	
 	#move rigidbody towards player
-	if player:
+	if player and enable_follow:
 		var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
 		target_velocity.x = direction_to_player.x * movement_speed
 		target_velocity.z = direction_to_player.z * movement_speed

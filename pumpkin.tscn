@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://x7ey2vo5ummc"]
+
+[ext_resource type="PackedScene" uid="uid://b73p8ioa4ip2p" path="res://3DShooterTest/Resources/Doodads/Pumpkin/Pumpkin.glb" id="1_fy8b1"]
+[ext_resource type="Script" uid="uid://dnqlsfdlokt17" path="res://pumpkin.gd" id="2_f42hk"]
+
+[node name="Pumpkin" unique_id=444371602 instance=ExtResource("1_fy8b1")]
+script = ExtResource("2_f42hk")
