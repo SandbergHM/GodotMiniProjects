@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dnbopj674xd7t"]
 
-[ext_resource type="Script" uid="uid://dixn8l2g5eylh" path="res://3DShooterTest/projectile.gd" id="1_ypo4c"]
+[ext_resource type="Script" uid="uid://dixn8l2g5eylh" path="res://3DShooterTest/Resources/Projectiles/projectile.gd" id="1_ypo4c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w55ik"]
 friction = 0.4

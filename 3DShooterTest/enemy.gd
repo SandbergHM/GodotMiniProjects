@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 ## Health
-@export var max_health : float = 100.0
+@export var max_health : float = 20
 ## Damage cooldown
-@export var damage_cooldown : float = 1
+@export var damage_cooldown : float = 0.1
 ## Maximum falling speed, used to prevent the player from falling too fast and breaking the game physics
 @export var terminal_velocity : float = -50.0
 ## Movement speed
@@ -53,9 +53,9 @@ func _physics_process(delta: float) -> void:
 			if collider.linear_velocity.length() > 10 and can_take_damage:
 				can_take_damage = false
 				health -= round(max(collider.mass, 1) * collider.linear_velocity.length() * 0.1) # Apply damage based on the force of the collision
-				print(str((max(collider.mass, 1) * collider.linear_velocity.length() * 0.1)) + " damage taken")
+				#print(str((max(collider.mass, 1) * collider.linear_velocity.length() * 0.1)) + " damage taken")
 				print(str(health) + " health remaining")
-				print(collider.linear_velocity.length())
+				#print(collider.linear_velocity.length())
 				damagetakentimer.start(damage_cooldown)
 	
 	# Check if the enemy is dead
@@ -64,5 +64,5 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 func _on_damagetakentimer_timeout() -> void:
-	can_take_damage = true
+	#can_take_damage = true
 	print("can take damage")

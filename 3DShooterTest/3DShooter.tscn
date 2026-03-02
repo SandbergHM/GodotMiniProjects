@@ -4,11 +4,10 @@
 [ext_resource type="Script" uid="uid://c6j6uf4h1gbbm" path="res://3DShooterTest/player.gd" id="1_x847p"]
 [ext_resource type="PackedScene" uid="uid://cpikdkvsd3sjn" path="res://3DShooterTest/box.tscn" id="2_2cd64"]
 [ext_resource type="Script" uid="uid://unrop6g61os8" path="res://3DShooterTest/enemy.gd" id="4_n4ewf"]
-[ext_resource type="PackedScene" uid="uid://b2hp7i1kpbh3t" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin.tscn" id="5_22v36"]
-[ext_resource type="PackedScene" uid="uid://celp0shjbxrh6" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin_pieces.tscn" id="6_e8jcd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cd64"]
-friction = 0.0
+friction = 0.75
+rough = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejay1"]
 
@@ -78,48 +77,48 @@ size_flags_horizontal = 0
 text = "Esc: back"
 
 [node name="Box" parent="." unique_id=1159106934 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 34.302956, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.8592997, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box2" parent="." unique_id=665871927 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 34.302956, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0111265, 7.8592997, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box3" parent="." unique_id=1716429298 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 34.302956, 1.5061998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.457285, 7.8592997, 1.5061998)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box4" parent="." unique_id=1029656980 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 34.302956, -8.119015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.8592997, -8.119015)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box5" parent="." unique_id=144988330 instance=ExtResource("2_2cd64")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 34.302956, -10.619869)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.8592997, -10.619869)
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box6" parent="." unique_id=2117262832 instance=ExtResource("2_2cd64")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 34.302956, 6.8271623)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.8592997, 6.8271623)
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
+gravity_scale = 1.0
 
 [node name="Box7" parent="." unique_id=583820922 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 34.302956, -3.3121314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.8592997, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="Box8" parent="." unique_id=661797836 instance=ExtResource("2_2cd64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 30.649492, -20.152384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09866238, 4.2058363, -20.152384)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1225722860]
-transform = Transform3D(-0.04818735, 0.9988383, 5.8732197e-10, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 33.57286, 0)
+transform = Transform3D(-0.04818735, 0.9988383, 1.5990305e-09, -0.76852804, -0.0370764, 0.63874096, 0.63799894, 0.030779231, 0.7694219, 0.042271614, 7.1292048, 0)
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451 groups=["Player", "can_be_damaged"]]
-transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, 7.547999, -2.5341742)
+transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, -18.895657, -2.5341742)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
-throw_force = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2070204287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.097677, 0)
@@ -137,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.502123, -0.5370722)
 target_position = Vector3(0, 0, -5)
 
 [node name="Enemy" type="CharacterBody3D" parent="." unique_id=1019801220 groups=["can_be_damaged"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.059036, 7.4822025, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.059036, -18.961452, 0)
 script = ExtResource("4_n4ewf")
 damage_cooldown = 0.2
 enable_follow = false
@@ -155,7 +154,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_22v36")
 one_shot = true
 
 [node name="Area3D" type="StaticBody3D" parent="." unique_id=649741428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4228492, -22.421251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25.020805, -22.421251)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=749957291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 27.597677, 0)
@@ -165,44 +164,18 @@ shape = SubResource("BoxShape3D_2cd64")
 transform = Transform3D(3.9729707, 0, 0, 0, 2.0000904, 0, 0, 0, 4.953536, 0.47148764, 27.58419, 0)
 mesh = SubResource("BoxMesh_w55ik")
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=1475845022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97964287, 0)
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1475845022 groups=["projectile_do_not_react"]]
+transform = Transform3D(3.8266351, 0, 0, 0, 0.07003021, 0, 0, 0, 2.8855953, 0, -0.26783562, 0)
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1850347178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, 26.854757, -0.14993286)
 shape = SubResource("BoxShape3D_x847p")
 
 [node name="GroundModel" type="MeshInstance3D" parent="Ground" unique_id=1768959836]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, 27.085875, 0.0011191368)
+transform = Transform3D(24.998112, 0.011933506, -0.07333446, -0.29845405, 0.9999275, -0.039380513, 0.07285924, 0.0016101176, 24.99986, -0.006419182, 27.085875, 0.0011191368)
 mesh = SubResource("PlaneMesh_x847p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
-
-[node name="Ground2" type="StaticBody3D" parent="." unique_id=1295007081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.964546, -16.945332, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2" unique_id=762414462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010375977, 26.854757, -0.14993286)
-shape = SubResource("BoxShape3D_x847p")
-
-[node name="GroundModel" type="MeshInstance3D" parent="Ground2" unique_id=1358024952]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, -0.006419182, 27.085875, 0.0011191368)
-mesh = SubResource("PlaneMesh_x847p")
-surface_material_override/0 = SubResource("StandardMaterial3D_ejay1")
-
-[node name="Pumpkin3" parent="." unique_id=1744911829 instance=ExtResource("5_22v36")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, 1.6437516)
-broken_model = ExtResource("6_e8jcd")
-
-[node name="Pumpkin4" parent="." unique_id=444371602 instance=ExtResource("5_22v36")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, 4.7257195)
-broken_model = ExtResource("6_e8jcd")
-
-[node name="Pumpkin5" parent="." unique_id=1404158592 instance=ExtResource("5_22v36")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.61173, 28.889233, -1.9568605)
-broken_model = ExtResource("6_e8jcd")
-
-[node name="Pumpkin6" parent="." unique_id=1840055057 instance=ExtResource("5_22v36")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.5141363, 28.889233, 4.7257195)
-broken_model = ExtResource("6_e8jcd")
 
 [connection signal="timeout" from="Enemy/DamageTakenTimer" to="Enemy" method="_on_damagetakentimer_timeout"]

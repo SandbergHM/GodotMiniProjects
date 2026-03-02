@@ -1557,286 +1557,342 @@ shadow_mesh = SubResource("ArrayMesh_i2nup")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k5kvu"]
 points = PackedVector3Array(0.02959612, 0.0063366536, 0.0267841, 0.027236529, 0.011024505, 0.01364211, 0.016512863, -0.006246217, 0.051036924, 0.020407148, -0.002516225, 0.043855384, -0.006987106, -0.008905202, -0.072475985, 0.020359188, 0.005123236, -0.012508869, 0.00089737773, -0.004556796, -0.05377253, -0.068393975, 0.00079433806, -0.014902718, -0.04877869, -0.0017671054, 0.0026884377, -0.03526381, -0.0028088498, 0.012977153, 9.165704e-05, -0.008821316, 0.0014431551)
 
-[node name="Pumpkin_pieces" type="Node3D" unique_id=651220252]
+[node name="Pumpkin_pieces" type="Node3D" unique_id=651220252 groups=["projectile_do_not_react"]]
 script = ExtResource("1_ochkv")
 intensity = 10.0
 
-[node name="Pumpkin_piece_1" type="RigidBody3D" parent="." unique_id=560741879]
+[node name="Pumpkin_piece_1" type="RigidBody3D" parent="." unique_id=560741879 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_1" unique_id=1225490695]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_1" unique_id=1225490695 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025876548, 0.62607205, 0.07206433)
 mesh = SubResource("ArrayMesh_wmw0d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_1" unique_id=264861566]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_1" unique_id=264861566 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025876548, 0.62607205, 0.07206433)
 shape = SubResource("ConvexPolygonShape3D_63p0g")
 
-[node name="Pumpkin_piece_2" type="RigidBody3D" parent="." unique_id=1338814628]
+[node name="Pumpkin_piece_2" type="RigidBody3D" parent="." unique_id=1338814628 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_001" type="MeshInstance3D" parent="Pumpkin_piece_2" unique_id=125249309]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_2" unique_id=125249309 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61808366, 0.19585842, -0.41883165)
 mesh = SubResource("ArrayMesh_bijto")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_2" unique_id=1151652262]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_2" unique_id=1151652262 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61808366, 0.19585842, -0.41883165)
 shape = SubResource("ConvexPolygonShape3D_ochkv")
 
-[node name="Pumpkin_piece_3" type="RigidBody3D" parent="." unique_id=1471122973]
+[node name="Pumpkin_piece_3" type="RigidBody3D" parent="." unique_id=1471122973 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_002" type="MeshInstance3D" parent="Pumpkin_piece_3" unique_id=658135136]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_3" unique_id=658135136 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43228018, -0.35909438, 0.33322015)
 mesh = SubResource("ArrayMesh_4ddtf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_3" unique_id=191613587]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_3" unique_id=191613587 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43228018, -0.35909438, 0.33322015)
 shape = SubResource("ConvexPolygonShape3D_t8is6")
 
-[node name="Pumpkin_piece_4" type="RigidBody3D" parent="." unique_id=811359459]
+[node name="Pumpkin_piece_4" type="RigidBody3D" parent="." unique_id=811359459 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_003" type="MeshInstance3D" parent="Pumpkin_piece_4" unique_id=777541651]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_4" unique_id=777541651 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47537887, -0.13057972, -0.5381942)
 mesh = SubResource("ArrayMesh_4edoy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_4" unique_id=1773250848]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_4" unique_id=1773250848 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47537887, -0.13057972, -0.5381942)
 shape = SubResource("ConvexPolygonShape3D_5ljg0")
 
-[node name="Pumpkin_piece_5" type="RigidBody3D" parent="." unique_id=554236086]
+[node name="Pumpkin_piece_5" type="RigidBody3D" parent="." unique_id=554236086 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_004" type="MeshInstance3D" parent="Pumpkin_piece_5" unique_id=20613148]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_5" unique_id=20613148 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5087883, -0.09914465, 0.5136069)
 mesh = SubResource("ArrayMesh_31y1i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_5" unique_id=1069208440]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_5" unique_id=1069208440 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5087883, -0.09914465, 0.5136069)
 shape = SubResource("ConvexPolygonShape3D_2vkww")
 
-[node name="Pumpkin_piece_6" type="RigidBody3D" parent="." unique_id=795473042]
+[node name="Pumpkin_piece_6" type="RigidBody3D" parent="." unique_id=795473042 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_005" type="MeshInstance3D" parent="Pumpkin_piece_6" unique_id=727663803]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_6" unique_id=727663803 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18798932, 0.1501914, 0.7155826)
 mesh = SubResource("ArrayMesh_34135")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_6" unique_id=1210509336]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_6" unique_id=1210509336 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18798932, 0.1501914, 0.7155826)
 shape = SubResource("ConvexPolygonShape3D_niga0")
 
-[node name="Pumpkin_piece_7" type="RigidBody3D" parent="." unique_id=1977191444]
+[node name="Pumpkin_piece_7" type="RigidBody3D" parent="." unique_id=1977191444 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_006" type="MeshInstance3D" parent="Pumpkin_piece_7" unique_id=781577796]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_7" unique_id=781577796 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14515616, -0.44952, 0.43112665)
 mesh = SubResource("ArrayMesh_lxmjj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_7" unique_id=1365045946]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_7" unique_id=1365045946 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14515616, -0.44952, 0.43112665)
 shape = SubResource("ConvexPolygonShape3D_glwka")
 
-[node name="Pumpkin_piece_8" type="RigidBody3D" parent="." unique_id=1150462788]
+[node name="Pumpkin_piece_8" type="RigidBody3D" parent="." unique_id=1150462788 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_007" type="MeshInstance3D" parent="Pumpkin_piece_8" unique_id=1212381055]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_8" unique_id=1212381055 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3032523, 0.45348388, 0.43254542)
 mesh = SubResource("ArrayMesh_5s1mx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_8" unique_id=1163461406]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_8" unique_id=1163461406 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3032523, 0.45348388, 0.43254542)
 shape = SubResource("ConvexPolygonShape3D_j6fj8")
 
-[node name="Pumpkin_piece_9" type="RigidBody3D" parent="." unique_id=1591268793]
+[node name="Pumpkin_piece_9" type="RigidBody3D" parent="." unique_id=1591268793 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_008" type="MeshInstance3D" parent="Pumpkin_piece_9" unique_id=1832638608]
+[node name="inner material_cell" type="MeshInstance3D" parent="Pumpkin_piece_9" unique_id=1832638608 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1668308, 0.6448326, -0.25885382)
 mesh = SubResource("ArrayMesh_kdujc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_9" unique_id=957324257]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pumpkin_piece_9" unique_id=957324257 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1668308, 0.6448326, -0.25885382)
 shape = SubResource("ConvexPolygonShape3D_qcvo1")
 
-[node name="RigidBody3D9" type="RigidBody3D" parent="." unique_id=392657775]
+[node name="RigidBody3D9" type="RigidBody3D" parent="." unique_id=392657775 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_009" type="MeshInstance3D" parent="RigidBody3D9" unique_id=1862285551]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D9" unique_id=1862285551 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3003923, 0.12140899, 0.70621663)
 mesh = SubResource("ArrayMesh_13iq3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9" unique_id=1940768653]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9" unique_id=1940768653 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3003923, 0.12140899, 0.70621663)
 shape = SubResource("ConvexPolygonShape3D_kb35u")
 
-[node name="RigidBody3D10" type="RigidBody3D" parent="." unique_id=1189757454]
+[node name="RigidBody3D10" type="RigidBody3D" parent="." unique_id=1189757454 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_010" type="MeshInstance3D" parent="RigidBody3D10" unique_id=418519906]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D10" unique_id=418519906 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66416067, 0.17772974, -0.18460223)
 mesh = SubResource("ArrayMesh_16ih4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10" unique_id=463727022]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10" unique_id=463727022 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66416067, 0.17772974, -0.18460223)
 shape = SubResource("ConvexPolygonShape3D_oxd04")
 
-[node name="RigidBody3D11" type="RigidBody3D" parent="." unique_id=493819547]
+[node name="RigidBody3D11" type="RigidBody3D" parent="." unique_id=493819547 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_011" type="MeshInstance3D" parent="RigidBody3D11" unique_id=1651705557]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D11" unique_id=1651705557 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27345183, -0.48986596, -0.13879068)
 mesh = SubResource("ArrayMesh_rwssg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11" unique_id=2076369192]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11" unique_id=2076369192 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27345183, -0.48986596, -0.13879068)
 shape = SubResource("ConvexPolygonShape3D_lt3bi")
 
-[node name="RigidBody3D12" type="RigidBody3D" parent="." unique_id=1491972931]
+[node name="RigidBody3D12" type="RigidBody3D" parent="." unique_id=1491972931 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_012" type="MeshInstance3D" parent="RigidBody3D12" unique_id=1291919233]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D12" unique_id=1291919233 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1828829, 0.24590223, -0.63946635)
 mesh = SubResource("ArrayMesh_by14h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D12" unique_id=40852679]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D12" unique_id=40852679 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1828829, 0.24590223, -0.63946635)
 shape = SubResource("ConvexPolygonShape3D_af0bv")
 
-[node name="RigidBody3D13" type="RigidBody3D" parent="." unique_id=1560061903]
+[node name="RigidBody3D13" type="RigidBody3D" parent="." unique_id=1560061903 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_013" type="MeshInstance3D" parent="RigidBody3D13" unique_id=1751135020]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D13" unique_id=1751135020 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13372585, -0.2788125, -0.64339983)
 mesh = SubResource("ArrayMesh_87jqc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D13" unique_id=1111371309]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D13" unique_id=1111371309 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13372585, -0.2788125, -0.64339983)
 shape = SubResource("ConvexPolygonShape3D_j5anp")
 
-[node name="RigidBody3D14" type="RigidBody3D" parent="." unique_id=676861659]
+[node name="RigidBody3D14" type="RigidBody3D" parent="." unique_id=676861659 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_014" type="MeshInstance3D" parent="RigidBody3D14" unique_id=1261673111]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D14" unique_id=1261673111 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10441384, -0.52186227, 0.014042053)
 mesh = SubResource("ArrayMesh_4a5dy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D14" unique_id=1093780247]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D14" unique_id=1093780247 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10441384, -0.52186227, 0.014042053)
 shape = SubResource("ConvexPolygonShape3D_sdcbc")
 
-[node name="RigidBody3D15" type="RigidBody3D" parent="." unique_id=963139054]
+[node name="RigidBody3D15" type="RigidBody3D" parent="." unique_id=963139054 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_015" type="MeshInstance3D" parent="RigidBody3D15" unique_id=2096061419]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D15" unique_id=2096061419 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6710021, 0.13641869, 0.25266945)
 mesh = SubResource("ArrayMesh_li4of")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D15" unique_id=808108594]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D15" unique_id=808108594 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6710021, 0.13641869, 0.25266945)
 shape = SubResource("ConvexPolygonShape3D_8ywkj")
 
-[node name="RigidBody3D16" type="RigidBody3D" parent="." unique_id=102560300]
+[node name="RigidBody3D16" type="RigidBody3D" parent="." unique_id=102560300 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_016" type="MeshInstance3D" parent="RigidBody3D16" unique_id=1527431696]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D16" unique_id=1527431696 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49196082, -0.34430745, -0.34385225)
 mesh = SubResource("ArrayMesh_vg1f2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D16" unique_id=1864139205]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D16" unique_id=1864139205 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49196082, -0.34430745, -0.34385225)
 shape = SubResource("ConvexPolygonShape3D_j6h24")
 
-[node name="RigidBody3D17" type="RigidBody3D" parent="." unique_id=2082454182]
+[node name="RigidBody3D17" type="RigidBody3D" parent="." unique_id=2082454182 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_017" type="MeshInstance3D" parent="RigidBody3D17" unique_id=1899464016]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D17" unique_id=1899464016 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5964955, -0.38561475, 0.11925566)
 mesh = SubResource("ArrayMesh_1togh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D17" unique_id=351831597]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D17" unique_id=351831597 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5964955, -0.38561475, 0.11925566)
 shape = SubResource("ConvexPolygonShape3D_28cfj")
 
-[node name="RigidBody3D18" type="RigidBody3D" parent="." unique_id=1627073489]
+[node name="RigidBody3D18" type="RigidBody3D" parent="." unique_id=1627073489 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_018" type="MeshInstance3D" parent="RigidBody3D18" unique_id=265097162]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D18" unique_id=265097162 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40652382, 0.49838388, -0.28822678)
 mesh = SubResource("ArrayMesh_kb6ww")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D18" unique_id=1842284587]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D18" unique_id=1842284587 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40652382, 0.49838388, -0.28822678)
 shape = SubResource("ConvexPolygonShape3D_gd6ck")
 
-[node name="RigidBody3D19" type="RigidBody3D" parent="." unique_id=819682643]
+[node name="RigidBody3D19" type="RigidBody3D" parent="." unique_id=819682643 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_019" type="MeshInstance3D" parent="RigidBody3D19" unique_id=476009527]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D19" unique_id=476009527 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121999435, -0.48393393, -0.42424536)
 mesh = SubResource("ArrayMesh_yr53i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D19" unique_id=1792459459]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D19" unique_id=1792459459 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121999435, -0.48393393, -0.42424536)
 shape = SubResource("ConvexPolygonShape3D_35wid")
 
-[node name="RigidBody3D20" type="RigidBody3D" parent="." unique_id=175900557]
+[node name="RigidBody3D20" type="RigidBody3D" parent="." unique_id=175900557 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_020" type="MeshInstance3D" parent="RigidBody3D20" unique_id=1328839097]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D20" unique_id=1328839097 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60999656, 0.12691288, 0.40192062)
 mesh = SubResource("ArrayMesh_hfasg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D20" unique_id=1860133199]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D20" unique_id=1860133199 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60999656, 0.12691288, 0.40192062)
 shape = SubResource("ConvexPolygonShape3D_jh6w1")
 
-[node name="RigidBody3D21" type="RigidBody3D" parent="." unique_id=1213479325]
+[node name="RigidBody3D21" type="RigidBody3D" parent="." unique_id=1213479325 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_021" type="MeshInstance3D" parent="RigidBody3D21" unique_id=1487560172]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D21" unique_id=1487560172 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7353873, 0.14492251, 0.031857166)
 mesh = SubResource("ArrayMesh_hge85")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D21" unique_id=662170432]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D21" unique_id=662170432 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7353873, 0.14492251, 0.031857166)
 shape = SubResource("ConvexPolygonShape3D_xvot8")
 
-[node name="RigidBody3D22" type="RigidBody3D" parent="." unique_id=460650678]
+[node name="RigidBody3D22" type="RigidBody3D" parent="." unique_id=460650678 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_022" type="MeshInstance3D" parent="RigidBody3D22" unique_id=281744108]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D22" unique_id=281744108 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027740851, 0.71526146, -0.020901531)
 mesh = SubResource("ArrayMesh_qd668")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D22" unique_id=1905297905]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D22" unique_id=1905297905 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027740851, 0.71526146, -0.020901531)
 shape = SubResource("ConvexPolygonShape3D_xmyxg")
 
-[node name="RigidBody3D23" type="RigidBody3D" parent="." unique_id=1110866151]
+[node name="RigidBody3D23" type="RigidBody3D" parent="." unique_id=1110866151 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_023" type="MeshInstance3D" parent="RigidBody3D23" unique_id=331159984]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D23" unique_id=331159984 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34365493, 0.66163725, 0.026179112)
 mesh = SubResource("ArrayMesh_1xjpk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D23" unique_id=564606516]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D23" unique_id=564606516 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34365493, 0.66163725, 0.026179112)
 shape = SubResource("ConvexPolygonShape3D_fxkqc")
 
-[node name="RigidBody3D24" type="RigidBody3D" parent="." unique_id=13735795]
+[node name="RigidBody3D24" type="RigidBody3D" parent="." unique_id=13735795 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_024" type="MeshInstance3D" parent="RigidBody3D24" unique_id=1282593348]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D24" unique_id=1282593348 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036570467, 0.81395406, -0.09255801)
 mesh = SubResource("ArrayMesh_ra5a3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D24" unique_id=581068707]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D24" unique_id=581068707 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036570467, 0.81395406, -0.09255801)
 shape = SubResource("ConvexPolygonShape3D_anom4")
 
-[node name="RigidBody3D25" type="RigidBody3D" parent="." unique_id=384586402]
+[node name="RigidBody3D25" type="RigidBody3D" parent="." unique_id=384586402 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_025" type="MeshInstance3D" parent="RigidBody3D25" unique_id=1888339772]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D25" unique_id=1888339772 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.042976424, -0.2550416, -0.0069320872)
 mesh = SubResource("ArrayMesh_udfon")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D25" unique_id=566195782]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D25" unique_id=566195782 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.042976424, -0.2550416, -0.0069320872)
 shape = SubResource("ConvexPolygonShape3D_41x4k")
 
-[node name="RigidBody3D26" type="RigidBody3D" parent="." unique_id=180258757]
+[node name="RigidBody3D26" type="RigidBody3D" parent="." unique_id=180258757 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_026" type="MeshInstance3D" parent="RigidBody3D26" unique_id=962677709]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D26" unique_id=962677709 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63835615, -0.034285307, -0.39764726)
 mesh = SubResource("ArrayMesh_0jmj7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D26" unique_id=1448828115]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D26" unique_id=1448828115 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63835615, -0.034285307, -0.39764726)
 shape = SubResource("ConvexPolygonShape3D_3o2i6")
 
-[node name="RigidBody3D27" type="RigidBody3D" parent="." unique_id=932960089]
+[node name="RigidBody3D27" type="RigidBody3D" parent="." unique_id=932960089 groups=["projectile_do_not_react"]]
+collision_layer = 8
+collision_mask = 8
 
-[node name="inner material_cell_027" type="MeshInstance3D" parent="RigidBody3D27" unique_id=1416223031]
+[node name="inner material_cell" type="MeshInstance3D" parent="RigidBody3D27" unique_id=1416223031 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84376043, -0.12661806, 0.054597396)
 mesh = SubResource("ArrayMesh_6cto6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D27" unique_id=1506642813]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D27" unique_id=1506642813 groups=["projectile_do_not_react"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84376043, -0.12661806, 0.054597396)
 shape = SubResource("ConvexPolygonShape3D_k5kvu")

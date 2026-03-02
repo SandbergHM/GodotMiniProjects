@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://iookni1q3uq2"]
+
+[ext_resource type="PackedScene" uid="uid://b73p8ioa4ip2p" path="res://3DShooterTest/Resources/Doodads/Pumpkin/Pumpkin.glb" id="1_ifhcq"]
+[ext_resource type="Script" uid="uid://cng7te0xjabvu" path="res://3DShooterTest/Resources/Projectiles/pumpkin_projectile.gd" id="2_abe4a"]
+[ext_resource type="PackedScene" uid="uid://celp0shjbxrh6" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin_pieces.tscn" id="3_anbhh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ifhcq"]
+radius = 1.0494982
+
+[node name="Pumpkin_Projectile" unique_id=219456124 groups=["Projectiles"] instance=ExtResource("1_ifhcq")]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("2_abe4a")
+broken_model = ExtResource("3_anbhh")
+
+[node name="Object_2" parent="." index="0" unique_id=1654709176]
+transform = Transform3D(0.00596723, 0.00045022529, 0.00043526938, -0.00043489633, -2.1330452e-05, 0.00598418, 0.00045058565, -0.005983046, 1.1419602e-05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1241179307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2997626, -0.20414531, -0.046916008)
+shape = SubResource("SphereShape3D_ifhcq")
+
+[node name="lifetime_timer" type="Timer" parent="." index="2" unique_id=50010233 groups=["Projectiles"]]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

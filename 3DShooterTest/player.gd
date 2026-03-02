@@ -35,7 +35,7 @@ var rotation_speed: float = 0.005
 @onready var interact_line = $Interactline
 
 ## Preload projectile scene
-var projectile_scene = preload("res://3DShooterTest/projectile.tscn")
+var projectile_scene = preload(globals.PUMPKIN_PROJECTILE_SCENE_PATH)
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		var projectile = projectile_scene.instantiate()
 		var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
 		get_parent().add_child(projectile)
-		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.0 
+		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.1 
 		projectile.linear_velocity = forward_direction * projectile.speed
 		projectile.damage = player_damage
 		

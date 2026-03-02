@@ -15,6 +15,10 @@ run/main_scene="uid://igt3rpjquvqw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*uid://uh0glku4v1xt"
+
 [display]
 
 window/size/viewport_width=1920
@@ -29,6 +33,7 @@ enabled=PackedStringArray("res://addons/github_copilot/plugin.cfg", "res://addon
 can_be_damaged="Can be damaged by projectiles"
 Projectiles=""
 interactable=""
+projectile_do_not_react=""
 
 [input]
 

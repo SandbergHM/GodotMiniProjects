@@ -1,5 +1,20 @@
 [gd_scene format=3 uid="uid://b2hp7i1kpbh3t"]
 
 [ext_resource type="PackedScene" uid="uid://b73p8ioa4ip2p" path="res://3DShooterTest/Resources/Doodads/Pumpkin/Pumpkin.glb" id="1_cusuo"]
+[ext_resource type="Script" uid="uid://u6p6siklg3ol" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin.gd" id="2_7a023"]
+[ext_resource type="PackedScene" uid="uid://celp0shjbxrh6" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin_pieces.tscn" id="3_66wpe"]
 
-[node name="Pumpkin" unique_id=444371602 instance=ExtResource("1_cusuo")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_cusuo"]
+radius = 1.5528014
+
+[node name="Pumpkin" unique_id=219456124 instance=ExtResource("1_cusuo")]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_7a023")
+broken_model = ExtResource("3_66wpe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=2023855484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46853024, -0.19265246, -0.046916008)
+shape = SubResource("SphereShape3D_cusuo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
