@@ -30,9 +30,17 @@ var movement_boost_speed : float = 0
 var mouse_movement = Input.get_last_mouse_velocity()
 ## Player rotation speed
 var rotation_speed: float = 0.005
+## Lock player rotation
+var rotation_locked: bool = false
+## Lock player movement
+var movement_locked: bool = false
+## Check if throw button was pressed to keep track of the throw charge timer
+var throw_button_pressed: bool = false
 #endregion
 
+@onready var throw_charge_timer = $ThrowChargeTimer
 @onready var interact_line = $Interactline
+@onready var throw_direction = $CanvasLayer/ThrowDirectionLine
 
 ## Preload projectile scene
 var projectile_scene = preload(globals.PUMPKIN_PROJECTILE_SCENE_PATH)
@@ -40,8 +48,76 @@ var projectile_scene = preload(globals.PUMPKIN_PROJECTILE_SCENE_PATH)
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	up_direction = Vector3.UP
+	throw_direction.width = 0
 
 func _physics_process(delta: float) -> void:
+	rotation_locked = false
+	movement_locked = false
+
+#region Spawn projectile
+	if Input.is_action_just_pressed("3D_player_shoot"):
+		var projectile = projectile_scene.instantiate()
+		var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
+		get_parent().add_child(projectile)
+		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.1 
+		projectile.linear_velocity = forward_direction * projectile.speed
+		projectile.damage = player_damage
+		
+#endregion
+
+#region Object highlight
+	#rotate interact_line with camera
+	interact_line.global_transform.basis = $Camera3D.global_transform.basis
+	if interact_line.is_colliding():
+		var collider = interact_line.get_collider()
+		if collider is RigidBody3D and collider.is_in_group("interactable"):
+			last_collider = collider
+			var mesh_instance = collider.get_node("MeshInstance3D")
+			if mesh_instance:
+				mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box_Highlight.tres")
+	elif last_collider != null:
+		var mesh_instance = last_collider.get_node("MeshInstance3D")
+		if mesh_instance:
+			mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box.tres")
+			last_collider = null
+#endregion
+
+#region Object throwing
+	if Input.is_action_pressed("3D_player_force_throw"):
+		if interact_line.is_colliding():
+			var collider = interact_line.get_collider()
+			if collider is RigidBody3D:	
+				if throw_charge_timer.is_stopped() and not throw_button_pressed:
+					throw_charge_timer.start()
+					throw_button_pressed = true
+					rotation_locked = true
+					movement_locked = true
+				elif throw_button_pressed:
+					Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+					throw_direction.width = 10
+					rotation_locked = true
+					movement_locked = true
+				
+	if Input.is_action_just_released("3D_player_force_throw"):
+		if interact_line.is_colliding():
+			var collider = interact_line.get_collider()
+			if collider is RigidBody3D:	
+				if throw_charge_timer.time_left > 0:
+					#get camera direction
+					var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
+					collider.apply_impulse(forward_direction * throw_force)
+					throw_charge_timer.stop()
+					throw_button_pressed = false
+					throw_direction.width = 0
+				else:
+					collider.apply_impulse(get_launch_direction() * throw_force)
+					throw_charge_timer.stop()
+					throw_button_pressed = false
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					throw_direction.width = 0
+				
+#endregion
+
 #region Player movement
 	var direction = Vector3.ZERO
 	var input_dir = Input.get_vector("3D_player_movement_right", "3D_player_movement_left", "3D_player_movement_back", "3D_player_movement_forward")
@@ -73,53 +149,31 @@ func _physics_process(delta: float) -> void:
 		
 	# Moving the Character
 	velocity = target_velocity
-	move_and_slide()
+	if not movement_locked:
+		move_and_slide()
 
-#endregion
-
-#region Spawn projectile
-	if Input.is_action_just_pressed("3D_player_shoot"):
-		var projectile = projectile_scene.instantiate()
-		var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
-		get_parent().add_child(projectile)
-		projectile.global_transform.origin = $Camera3D.global_transform.origin + forward_direction * 1.1 
-		projectile.linear_velocity = forward_direction * projectile.speed
-		projectile.damage = player_damage
-		
-#endregion
-
-#region Object highlight
-	#rotate interact_line with camera
-	interact_line.global_transform.basis = $Camera3D.global_transform.basis
-	if interact_line.is_colliding():
-		var collider = interact_line.get_collider()
-		if collider is RigidBody3D and collider.is_in_group("interactable"):
-			last_collider = collider
-			var mesh_instance = collider.get_node("MeshInstance3D")
-			if mesh_instance:
-				mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box_Highlight.tres")
-	elif last_collider != null:
-		var mesh_instance = last_collider.get_node("MeshInstance3D")
-		if mesh_instance:
-			mesh_instance.material_overlay = preload("res://3DShooterTest/Resources/Materials/Box.tres")
-			last_collider = null
-#endregion
-
-#region Object throwing
-	if Input.is_action_just_pressed("3D_player_force_throw"):
-		if interact_line.is_colliding():
-			var collider = interact_line.get_collider()
-			if collider is RigidBody3D:	
-				#get camera direction
-				var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
-				collider.apply_impulse(forward_direction * throw_force)
 #endregion
 
 func _unhandled_input(event: InputEvent):
 #region Player rotation
-	if event is InputEventMouseMotion:
-		var mouse_motion_event: InputEventMouseMotion = event as InputEventMouseMotion
-		rotation.y -= mouse_motion_event.relative.x * rotation_speed
-		$Camera3D.rotation.x -= mouse_motion_event.relative.y * rotation_speed
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, PI/-2, PI/2)
+	if not rotation_locked:
+		if event is InputEventMouseMotion:
+			var mouse_motion_event: InputEventMouseMotion = event as InputEventMouseMotion
+			rotation.y -= mouse_motion_event.relative.x * rotation_speed
+			$Camera3D.rotation.x -= mouse_motion_event.relative.y * rotation_speed
+			$Camera3D.rotation.x = clampf($Camera3D.rotation.x, PI/-2, PI/2)
 #endregion
+
+func get_launch_direction() -> Vector3:
+	var viewport = get_viewport()
+	var screen_center = viewport.get_visible_rect().size / 2.0
+	var mouse_pos = viewport.get_mouse_position()
+
+	var offset = (mouse_pos - screen_center) / screen_center
+
+	var camera = get_viewport().get_camera_3d()
+	var cam_right = camera.global_transform.basis.x
+	var cam_up    = -camera.global_transform.basis.y
+
+	var direction = cam_right * offset.x + cam_up * offset.y
+	return direction.normalized()
