@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ltfp8ia1d0vr"]
+
+[resource]
+albedo_color = Color(0.52906674, 0.52906674, 0.52906656, 1)
+metallic = 0.77
+refraction_scale = 0.29
