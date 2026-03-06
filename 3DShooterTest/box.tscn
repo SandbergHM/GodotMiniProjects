@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_w55ik"]
 
-[node name="Box" type="RigidBody3D" unique_id=1159106934 groups=["interactable"]]
+[node name="Box" type="RigidBody3D" unique_id=1159106934 groups=["Liftable", "interactable"]]
 collision_layer = 15
 collision_mask = 15
 mass = 0.1

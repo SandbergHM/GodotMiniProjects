@@ -34,6 +34,7 @@ can_be_damaged="Can be damaged by projectiles"
 Projectiles=""
 interactable=""
 projectile_do_not_react=""
+Liftable="Can be lifted by throw"
 
 [input]
 

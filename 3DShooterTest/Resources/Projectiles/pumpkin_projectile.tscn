@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://celp0shjbxrh6" path="res://3DShooterTest/Resources/Doodads/Pumpkin/pumpkin_pieces.tscn" id="3_anbhh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sxvsm"]
-bounce = 0.4
+bounce = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ifhcq"]
 radius = 1.0494982
 
 [node name="Pumpkin_Projectile" unique_id=219456124 groups=["Projectiles"] instance=ExtResource("1_ifhcq")]
-collision_layer = 14
-collision_mask = 14
+collision_layer = 6
+collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_sxvsm")
 contact_monitor = true
 max_contacts_reported = 5

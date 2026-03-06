@@ -10,13 +10,12 @@ extends CharacterBody3D
 @export var movement_speed : float = 5.0
 ## Enable following the player
 @export var enable_follow : bool = true
-@export var update_interval: float = 0.2  # Seconds between path recalculations
 
-# health
+## Enemy health
 var health : float = max_health
-# Able to take damage
+## Able to take damage
 var can_take_damage : bool = true
-# target movement speed
+## target movement speed
 var target_velocity = Vector3.ZERO
 # fall acceleration
 var fall_acceleration = 9.8
@@ -84,12 +83,13 @@ func _physics_process(delta: float) -> void:
 		if collider is RigidBody3D:
 			if collider.linear_velocity.length() > 10 and can_take_damage:
 				can_take_damage = false
-				health -= round(max(collider.mass, 1) * collider.linear_velocity.length() * 0.1) # Apply damage based on the force of the collision
-
+				health -= round(max(collider.mass, 1) * collider.linear_velocity.length() * 0.1) 
 				damagetakentimer.start(damage_cooldown)
 	
 	# Check if the enemy is dead
 	if health <= 0:
+		#await collision on project side
+		await get_tree().process_frame
 		await get_tree().process_frame
 		queue_free() # Remove the enemy from the scene
 #endregion

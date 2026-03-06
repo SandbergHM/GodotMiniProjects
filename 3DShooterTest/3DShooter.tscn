@@ -48,42 +48,50 @@ albedo_color = Color(0.36707318, 0.15413055, 0.033328786, 1)
 script = ExtResource("1_w55ik")
 
 [node name="Label" type="Label" parent="." unique_id=442618745]
-offset_left = 1743.0
-offset_top = 885.0
-offset_right = 1864.0
-offset_bottom = 908.0
+offset_left = 1568.0
+offset_top = 805.0
+offset_right = 1689.0
+offset_bottom = 828.0
 size_flags_horizontal = 0
 text = "Left click: shoot"
 
 [node name="Label2" type="Label" parent="." unique_id=1336064622]
-offset_left = 1743.0
-offset_top = 920.0
-offset_right = 1876.0
-offset_bottom = 943.0
+offset_left = 1568.0
+offset_top = 838.0
+offset_right = 1701.0
+offset_bottom = 861.0
 size_flags_horizontal = 0
 text = "Right click: throw"
 
+[node name="Label6" type="Label" parent="." unique_id=1866173310]
+offset_left = 1568.0
+offset_top = 870.0
+offset_right = 1854.0
+offset_bottom = 893.0
+size_flags_horizontal = 0
+text = "Right click: hold for directional throw"
+
 [node name="Label3" type="Label" parent="." unique_id=1297651043]
-offset_left = 1743.0
-offset_top = 957.0
-offset_right = 1876.0
-offset_bottom = 980.0
+offset_left = 1568.0
+offset_top = 902.0
+offset_right = 1701.0
+offset_bottom = 925.0
 size_flags_horizontal = 0
 text = "Shift: sprint"
 
 [node name="Label4" type="Label" parent="." unique_id=43204202]
-offset_left = 1743.0
-offset_top = 990.0
-offset_right = 1876.0
-offset_bottom = 1013.0
+offset_left = 1568.0
+offset_top = 935.0
+offset_right = 1701.0
+offset_bottom = 958.0
 size_flags_horizontal = 0
 text = "Space: jump"
 
 [node name="Label5" type="Label" parent="." unique_id=886302998]
-offset_left = 1743.0
-offset_top = 1024.0
-offset_right = 1876.0
-offset_bottom = 1047.0
+offset_left = 1568.0
+offset_top = 969.0
+offset_right = 1701.0
+offset_bottom = 992.0
 size_flags_horizontal = 0
 text = "Esc: back"
 
@@ -103,17 +111,6 @@ physics_material_override = SubResource("PhysicsMaterial_2cd64")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7445107, 7.8592997, -8.119015)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
 
-[node name="Box5" parent="." unique_id=144988330 instance=ExtResource("2_2cd64")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.457285, 7.8592997, -10.619869)
-mass = 5.0
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-
-[node name="Box6" parent="." unique_id=2117262832 instance=ExtResource("2_2cd64")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.457285, 7.8592997, 6.8271623)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_2cd64")
-gravity_scale = 1.0
-
 [node name="Box7" parent="." unique_id=583820922 instance=ExtResource("2_2cd64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.760678, 7.8592997, -3.3121314)
 physics_material_override = SubResource("PhysicsMaterial_2cd64")
@@ -127,28 +124,25 @@ transform = Transform3D(-0.04818735, 0.9988383, 1.5990305e-09, -0.76852804, -0.0
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1706105451 groups=["Player", "can_be_damaged"]]
-transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, -18.895657, -2.5341742)
+transform = Transform3D(-0.4243259, 0, 0.90550953, 0, 1, 0, -0.90550953, 0, -0.4243259, 0, 7.502532, 0)
 safe_margin = 0.01
 script = ExtResource("1_x847p")
 throw_force = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2070204287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.097677, 0)
 shape = SubResource("CapsuleShape3D_ejay1")
 
 [node name="PlayerModel" type="MeshInstance3D" parent="Player" unique_id=680546354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.097677, 0)
 mesh = SubResource("CapsuleMesh_x847p")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=64202484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042271376, 27.58613, 0.37288177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3853054, 0)
 
 [node name="Interactline" type="RayCast3D" parent="Player" unique_id=1044963478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.502123, -0.5370722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369339, 0)
 target_position = Vector3(0, 0, -5)
 
 [node name="ThrowChargeTimer" type="Timer" parent="Player" unique_id=1152391935]
-wait_time = 0.5
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=773104628]
@@ -158,8 +152,8 @@ script = ExtResource("4_22v36")
 
 [node name="Enemy" type="CharacterBody3D" parent="." unique_id=1019801220 groups=["can_be_damaged"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.729057, 8.90246, 0)
-collision_layer = 15
-collision_mask = 15
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("4_n4ewf")
 damage_cooldown = 0.2
 enable_follow = false

@@ -4,6 +4,7 @@ class_name globals
 #region scene path constants
 const PROJECTILE_SCENE_PATH = "res://3DShooterTest/Resources/Projectiles/projectile.tscn"
 const PUMPKIN_PROJECTILE_SCENE_PATH = "res://3DShooterTest/Resources/Projectiles/pumpkin_projectile.tscn"
+const FALL_ACCELERATION = 9.8
 #endregion
 
 
@@ -35,3 +36,4 @@ static func _texture_fadeout(node: Node, fade_time : float):
 	# Wait for the fade to finish, then free the root Node3D
 	
 	node.queue_free()
+	

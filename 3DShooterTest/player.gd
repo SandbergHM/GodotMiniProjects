@@ -10,13 +10,15 @@ extends CharacterBody3D
 ## Player jump height
 @export var jump_height : float = 5.0
 ## Gravity acceleration, used to pull the player down when in the air
-@export var fall_acceleration = 9.8
+@export var fall_acceleration = globals.FALL_ACCELERATION
 ## Health
 @export var health : float = 100.0
 ## Object throw force
 @export var throw_force : float = 25.0
 ## Player damage
 @export var player_damage : float = 5
+## Minimum time the throw button needs to be held to charge the throw, used to differentiate between a normal throw and a charged throw
+@export var min_hold_time: float = 0.1  # tune this
 #endregion
 
 #region local variables
@@ -36,6 +38,9 @@ var rotation_locked: bool = false
 var movement_locked: bool = false
 ## Check if throw button was pressed to keep track of the throw charge timer
 var throw_button_pressed: bool = false
+
+var suck_object_to_player_tween: Tween
+
 #endregion
 
 @onready var throw_charge_timer = $ThrowChargeTimer
@@ -47,6 +52,7 @@ var projectile_scene = preload(globals.PUMPKIN_PROJECTILE_SCENE_PATH)
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	throw_charge_timer.wait_time = min_hold_time
 	up_direction = Vector3.UP
 	throw_direction.width = 0
 
@@ -83,39 +89,54 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 #region Object throwing
+	#Check if player is pressing or holding throw button
 	if Input.is_action_pressed("3D_player_force_throw"):
 		if interact_line.is_colliding():
 			var collider = interact_line.get_collider()
 			if collider is RigidBody3D:	
 				if throw_charge_timer.is_stopped() and not throw_button_pressed:
 					throw_charge_timer.start()
+					Input.warp_mouse(get_viewport().size / 2)
 					throw_button_pressed = true
 					rotation_locked = true
 					movement_locked = true
-				elif throw_button_pressed:
+					get_tree().process_frame
+				elif throw_button_pressed and (throw_charge_timer.wait_time - throw_charge_timer.time_left) >= min_hold_time and collider.is_in_group("Liftable"):
+					#Move object to in front of player while charging throw
+					var object_hover_location = $Camera3D.global_transform.origin + (-$Camera3D.global_transform.basis.z.normalized() * 2)
+					if suck_object_to_player_tween == null or not suck_object_to_player_tween.is_running():
+						suck_object_to_player_tween = create_tween()
+						suck_object_to_player_tween.set_trans(Tween.TRANS_EXPO)
+						suck_object_to_player_tween.set_ease(Tween.EASE_OUT)
+						suck_object_to_player_tween.tween_property(collider, "global_transform:origin", object_hover_location, 0.5)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 					throw_direction.width = 10
 					rotation_locked = true
 					movement_locked = true
-				
+		else:
+			throw_direction.width = 0
+			throw_button_pressed = false
+			stop_charge_tween()
+			
+	#Determine if throw should be charge or not
 	if Input.is_action_just_released("3D_player_force_throw"):
 		if interact_line.is_colliding():
 			var collider = interact_line.get_collider()
 			if collider is RigidBody3D:	
 				if throw_charge_timer.time_left > 0:
-					#get camera direction
+					stop_charge_tween()
 					var forward_direction = -$Camera3D.global_transform.basis.z.normalized()
 					collider.apply_impulse(forward_direction * throw_force)
 					throw_charge_timer.stop()
 					throw_button_pressed = false
 					throw_direction.width = 0
 				else:
+					stop_charge_tween()
 					collider.apply_impulse(get_launch_direction() * throw_force)
 					throw_charge_timer.stop()
 					throw_button_pressed = false
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					throw_direction.width = 0
-				
 #endregion
 
 #region Player movement
@@ -140,18 +161,17 @@ func _physics_process(delta: float) -> void:
 	target_velocity.z = direction.z * (movement_speed + movement_boost_speed)
 	
 	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+	if not is_on_floor(): # If in the air, fall towards the floor
 		target_velocity.y = max(target_velocity.y - (fall_acceleration * delta),terminal_velocity)
 	elif Input.is_action_just_pressed("3D_player_jump") and is_on_floor():
-		target_velocity.y = jump_height # Jump strength, can be adjusted for higher or lower jumps
+		target_velocity.y = jump_height
 	else:
-		target_velocity.y = 0 # Reset vertical velocity when on the ground to prevent sliding down slopes or unintended movement
+		target_velocity.y = 0 
 		
 	# Moving the Character
 	velocity = target_velocity
 	if not movement_locked:
 		move_and_slide()
-
 #endregion
 
 func _unhandled_input(event: InputEvent):
@@ -177,3 +197,8 @@ func get_launch_direction() -> Vector3:
 
 	var direction = cam_right * offset.x + cam_up * offset.y
 	return direction.normalized()
+
+func stop_charge_tween():
+	if suck_object_to_player_tween:
+		suck_object_to_player_tween.stop()
+		suck_object_to_player_tween = null
